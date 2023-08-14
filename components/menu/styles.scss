@@ -1,0 +1,37 @@
+
+.container {
+    display: flex;
+}
+
+.menu {
+    background-color: rgb(95, 95, 95);
+    height: 98vh;
+    width: 120px;
+    font-size: 56px;
+    padding: 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.menuOptionDiv {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+    cursor: pointer;
+    width: 70px;
+    height: 50px;
+
+    border-radius: 5px;
+
+    &:hover {
+
+        background-color: rgb(113, 113, 113);
+    }
+
+    &:active {
+        background-color: rgb(113, 113, 113);
+    }
+}
