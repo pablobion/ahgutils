@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './styles.scss'
 
-import {sum, subtract} from '../../utils/hoursCalculator'
+import {sum, subtract} from '../../../utils/hoursCalculator'
 
 import {Button, TextField, Tooltip, Snackbar, Alert} from '@mui/material';
 
