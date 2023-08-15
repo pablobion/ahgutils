@@ -91,6 +91,10 @@ function About() {
     setHistory([])
     localStorage.removeItem("historyCalculator");
   }
+  
+  const clickToCopy = () => {
+    navigator.clipboard.writeText(`${result.hours}h${result.minutes}`)
+  }
 
   return (
     <div className='container'>
@@ -103,7 +107,7 @@ function About() {
           </div>
           <div id='divCopyResult'>
             <Tooltip title="Clique para copiar o resultado" onClick={() => handleShowMessage({message: 'Resultado copiado para area de transferencia!', type: 'success'})}>
-              <Button size='small' variant="text" style={{ fontSize: 24 }}><MdContentCopy/></Button>
+              <Button onClick={() => clickToCopy()} size='small' variant="text" style={{ fontSize: 24 }}><MdContentCopy/></Button>
             </Tooltip>
               <div id='historyCalc'>
               <Fab color="primary" aria-label="add" onClick={handleButtonClick}>
