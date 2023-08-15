@@ -9,13 +9,17 @@
     background-color: rgb(255, 255, 255);
     border-radius: 20px;
     height: 88vh;
-    width: 500px;
-    padding: 20px;
+    width: 600px;
+    padding: 20px 40px;
+    z-index: 2;
 
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+
+    input {
+        font-size: 22px;
+    }
 
 }
 
@@ -27,10 +31,10 @@
 
 #painelHoursInputCalculator {
     display: flex;
-    align-items: start;
+    align-items: flex-start;
     justify-content: center;
     width: 100%;
-    min-height: 200px;
+    min-height: 160px;
 
     .painelHoursInputCalculatorLeft {
         display: flex;
@@ -63,14 +67,21 @@
 }
 
 
- 
-
 #divActionsHours {
-    width:100%;
-    margin-top: 20px;
+    width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    margin-top: 10px;
+    padding-left: 20%;
+ 
+
+    button {
+        font-size: 24px;
+    }
+
+    button + button {
+        margin-left: 110px;
+    }
 }
 
 
@@ -96,5 +107,87 @@
         margin-top: 5px;
         display: flex;
         align-items: center;
+    }
+
+    #historyCalc{
+        position: absolute;
+        top: 9.5%;
+        margin-left: 70px;
+    }
+}
+
+
+//Modal history
+.openHistory {
+    transition: transform 0.5s ease-in-out;
+    transform: translateX(135%); /* Ou o valor que você preferir */
+}
+
+.closeHistory {
+    transition: transform 0.5s ease-in-out;
+    transform: translateX(0%); /* Ou o valor que você preferir */
+}
+
+.modalHistory{
+    position: absolute;
+    background-color: whitesmoke;
+    width: 320px;
+    height: 80%;
+    border-radius: 0px 20px 20px 0px;
+    padding: 40px;
+
+    z-index: 1;
+
+    overflow: hidden;
+
+    h3 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #494949;
+        margin-bottom: 10px;
+    }
+
+    .detailHistory{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .detailHistoryLeft{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 40px;
+            margin-bottom: 50px;
+        }
+        .detailHistoryRight{
+            display: flex;
+            width: 60%;
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+
+    button {
+        border-radius: 5px;
+        background-color: rgb(255, 255, 255);
+        border: 1px solid lightgray;
+        padding: 10px;
+        width: 120px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+
+        &:hover {
+            box-shadow: inset 0 0 0 1px rgb(113, 113, 113);
+            transition: 0.5s ease;
+        }
+
+        &:active {
+            background-color: rgb(113, 113, 113);
+            color: rgb(255, 255, 255);
+            transition: 0s ease;
+        }
     }
 }
