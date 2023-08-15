@@ -94,33 +94,13 @@ function About() {
   }
   
   const clickToCopy = () => {
-    navigator.clipboard.writeText(`${result.hours}h${result.minutes}`)
+    handleShowMessage({message: 'Resultado copiado para area de transferencia!', type: 'success'})
+    navigator.clipboard.writeText(`${(`${result.hours}`).padStart(2, '0')}h${(`${result.minutes}`).padStart(2, '0')}`)
   }
 
   return (
     <div className='container'>
       <div id='modal'>
-        <h2>Resultado</h2>
-        <div className='resultDiv'>
-          <div className='divInputs'>  
-            <TextField value={result.hours} color="success" id="outlined-basic" label="Horas" variant="filled" InputProps={{readOnly: true}} />
-            <TextField value={result.minutes} color="success" id="outlined-basic" label="Minutos" variant="filled" InputProps={{readOnly: true}}/>
-          </div>
-          <div id='divCopyResult'>
-            <Tooltip title="Clique para copiar o resultado" onClick={() => handleShowMessage({message: 'Resultado copiado para area de transferencia!', type: 'success'})}>
-              <Button onClick={() => clickToCopy()} size='small' variant="text" style={{ fontSize: 24 }}><MdContentCopy/></Button>
-            </Tooltip>
-              <div id='historyCalc'>
-              <Fab color="primary" aria-label="add" onClick={handleButtonClick}>
-                <BsClockHistory/>
-              </Fab>
-            </div>
-          </div>
-          
-        </div>
-        
-        <div className='divider'/>
-
         <div id='painelHoursInputCalculator'>
           <div className='painelHoursInputCalculatorLeft'>
             {state.map((elem, index) => (
@@ -145,10 +125,28 @@ function About() {
           </div>
         </div>
 
-
         <div id='divActionsHours'>
           <Button style={{ backgroundColor: "blue", minWidth: 147 }}  variant="contained" onClick={() => doCalc({type: 'sum', addHistory: true})}><TiPlus/></Button>
           <Button style={{ backgroundColor: "#0078d4", minWidth: 147 }}  variant="contained" onClick={() => doCalc({type: 'sub', addHistory: true})}><TiMinus/></Button>
+        </div>
+
+        <div className='divider'/>
+        <h2>Resultado</h2>
+        <div className='resultDiv'>
+          <div className='divInputs'>  
+            <TextField value={result.hours} color="success" id="outlined-basic" label="Horas" variant="filled" InputProps={{readOnly: true}} />
+            <TextField value={result.minutes} color="success" id="outlined-basic" label="Minutos" variant="filled" InputProps={{readOnly: true}}/>
+          </div>
+          <div id='divCopyResult'>
+            <Tooltip title="Clique para copiar o resultado">
+              <Button onClick={() => clickToCopy()} size='small' variant="text" style={{ fontSize: 24 }}><MdContentCopy/></Button>
+            </Tooltip>
+              <div id='historyCalc'>
+              <Fab color="primary" aria-label="add" onClick={handleButtonClick}>
+                <BsClockHistory/>
+              </Fab>
+            </div>
+          </div>
         </div>
       </div>
 
