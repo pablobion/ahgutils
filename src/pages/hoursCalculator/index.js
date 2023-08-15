@@ -35,22 +35,11 @@ function About() {
     if(historyStorage) setHistory(JSON.parse(historyStorage))
   }, []);
 
-  const handleShowMessage = ({message, type = 'success'}) => {
-    setSnackbar({
-      message,
-      open: true,
-      type
-    }) 
-  };
+  const handleShowMessage = ({message, type = 'success'}) => setSnackbar({message,open: true,type}) 
 
   const handleClose = (event, reason) => {
-    if (reason === 'clickaway') {
-      return;
-    }
-    setSnackbar({
-      message: '',
-      open: false
-    })
+    if (reason === 'clickaway') return;
+    setSnackbar({message: '', open: false})
   };
 
   const handleAddNewInputs = () => {
@@ -69,7 +58,7 @@ function About() {
     const atualInputs = state;
     if(inputType === 'minutes' && value > 59) value = 59
     atualInputs[index][inputType] = Number(value);
-    console.log(atualInputs)
+
     setState([...atualInputs])
   }
 
