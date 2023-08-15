@@ -56,6 +56,7 @@ function About() {
 
   const handleChangeInput = ({value, index, inputType}) => {
     const atualInputs = state;
+    value = value.replace(/[^0-9.]+/, '');
     if(inputType === 'minutes' && value > 59) value = 59
     atualInputs[index][inputType] = Number(value);
 
@@ -124,7 +125,7 @@ function About() {
           <div className='painelHoursInputCalculatorLeft'>
             {state.map((elem, index) => (
               <div className='divInputs'>
-                <TextField  value={state[index].hours} id="outlined-basic" label="Horas" variant="outlined" onChange={(e) => handleChangeInput({value: e.target.value, index, inputType: 'hours'})} />
+                <TextField value={state[index].hours} id="outlined-basic" label="Horas" variant="outlined" onChange={(e) => handleChangeInput({value: e.target.value, index, inputType: 'hours'})} />
                 <TextField value={state[index].minutes} id="outlined-basic" label="Minutos" variant="outlined" onChange={(e) => handleChangeInput({value: e.target.value, index, inputType: 'minutes'})} /> 
               </div>
             ))}
