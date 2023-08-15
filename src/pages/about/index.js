@@ -25,9 +25,6 @@ function About() {
          <h1 className='teste'>Colaboradores do projeto</h1>
           {people.map((person, index) => (
             <div className='divPerson'>
-                               <img
-              src={`./assets/person/${person.image}`}
-            ></img>
               <p>{person.name}</p>
             </div>
           ))}
