@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import './styles.scss'
+import './_styles.scss'
 
 import {sum, subtract} from '../../../utils/hoursCalculator'
 
@@ -58,7 +58,7 @@ function About() {
     const atualInputs = state;
     value = value.replace(/[^0-9.]+/, '');
     if(inputType === 'minutes' && value > 59) value = 59
-    atualInputs[index][inputType] = Number(value);
+    atualInputs[index][inputType] = value;
 
     setState([...atualInputs])
   }

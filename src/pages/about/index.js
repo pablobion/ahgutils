@@ -1,29 +1,42 @@
 import React from 'react';
+import Image from 'next/image'
 import './styles.scss'
 function About() {
 
 
   const people = [
     {
-      name: 'Erick',
-      image: "https://lh3.googleusercontent.com/a-/AD_cMMQacZmvGO9DwhXWipd-SR5m0rYO791Ir2oyZ2UjyTQ5gQ=s88-w88-h88-c-k-no"
+      name: 'Erick Henrique',
+      image: "erick.jpg"
     },
     {
-      name: 'Pablo',
-      image: "https://lh3.googleusercontent.com/a/AAcHTte94ZE2k3X-y80P99q82zBy0kcPqQznGWn5ZK1Cdj92VKI=s88-w88-h88-c-k-no"
-    }
+      name: 'Andrey Costa',
+      image: 'nophoto.jpg'
+    },
+    {
+      name: 'Pablo Bion',
+      image: "pablo.jpg"
+    },
   ]
 
   return (
     <div id="container">
-      <div id='modal'>
-      <h1 className='teste'>Colaboradores do projeto</h1>
-        {people.map((person, index) => (
-          <div className='divPerson'>
-            <img src={person.image}></img>
-            <h2>{person.name}</h2>
-          </div>
-        ))}
+      <div id='modalPerson'>
+        <div>
+         <h1 className='teste'>Colaboradores do projeto</h1>
+          {people.map((person, index) => (
+            <div className='divPerson'>
+              <Image
+                src={`/assets/person/${person.image}`}
+                width={80}
+                height={80}
+                onClick={() => router.push('/')}
+                style={{ cursor: 'pointer' }}
+              />
+              <p>{person.name}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

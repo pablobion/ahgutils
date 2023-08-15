@@ -4,7 +4,7 @@ const extractMinutesFromSeconds = seconds => seconds > 0 ?  Math.floor((seconds 
 
 export const MinutesToHours = (minutes) => {
     const hours = Math.floor(minutes / 60);
-    const minutesRest = minutes % 60;
+    const minutesRest = (`${minutes % 60}`).padStart(2, '0');
 
     return {hours, minutes: minutesRest}
 }
