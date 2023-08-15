@@ -8,6 +8,9 @@ import '../../styles/app.scss'
 import {optionsMenu} from './menuOptions'
 import logo from '../../assets/logo.png'
 
+import {Tooltip} from '@mui/material';
+
+
 const Layout = ({ children }) => {
 
     const router = useRouter();
@@ -22,7 +25,11 @@ const Layout = ({ children }) => {
                     onClick={() => router.push('/')}
                     style={{ cursor: 'pointer' }}
                 />
-                {optionsMenu.map(elem => (<div onClick={() => router.push('/hoursCalculator')} key={elem.name} className='menuOptionDiv'>{elem.icon}</div>))}
+                {optionsMenu.map(elem => (
+                    <Tooltip title={elem.label}>  
+                        <div onClick={() => router.push(elem.path)} key={elem.name} className='menuOptionDiv'>{elem.icon}</div>
+                    </Tooltip>
+                ))}
             </div>
             {children}
         </div>
