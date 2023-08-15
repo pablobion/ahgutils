@@ -1,5 +1,4 @@
 import React from 'react';
-import Image from 'next/image'
 import './styles.scss'
 function About() {
 
@@ -26,13 +25,9 @@ function About() {
          <h1 className='teste'>Colaboradores do projeto</h1>
           {people.map((person, index) => (
             <div className='divPerson'>
-              <Image
-                src={`/assets/person/${person.image}`}
-                width={80}
-                height={80}
-                onClick={() => router.push('/')}
-                style={{ cursor: 'pointer' }}
-              />
+                               <img
+              src={`./assets/person/${person.image}`}
+            ></img>
               <p>{person.name}</p>
             </div>
           ))}
