@@ -103,8 +103,8 @@ function About() {
         <h2>Resultado</h2>
         <div className='resultDiv'>
           <div className='divInputs'>  
-            <TextField value={result.hours} color="success" id="outlined-basic" label="Horas" variant="outlined" InputProps={{readOnly: true}} />
-            <TextField value={result.minutes} color="success" id="outlined-basic" label="Minutos" variant="outlined" InputProps={{readOnly: true}}/>
+            <TextField value={result.hours} color="success" id="outlined-basic" label="Horas" variant="filled" InputProps={{readOnly: true}} />
+            <TextField value={result.minutes} color="success" id="outlined-basic" label="Minutos" variant="filled" InputProps={{readOnly: true}}/>
           </div>
           <div id='divCopyResult'>
             <Tooltip title="Clique para copiar o resultado" onClick={() => handleShowMessage({message: 'Resultado copiado para area de transferencia!', type: 'success'})}>
