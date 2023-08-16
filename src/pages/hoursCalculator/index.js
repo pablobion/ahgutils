@@ -134,8 +134,8 @@ function About() {
                 <h2>Resultado</h2>
                 <div className='resultDiv'>
                     <div className='divInputs'>
-                        <TextField value={result.hours} color="success" id="outlined-basic" label="Horas" variant="filled" InputProps={{ readOnly: true }} />
-                        <TextField value={result.minutes} color="success" id="outlined-basic" label="Minutos" variant="filled" InputProps={{ readOnly: true }} />
+                        <TextField value={result.hours ? `${result.hours}`.padStart(2, '0') : ''} color="success" id="outlined-basic" label="Horas" variant="filled" InputProps={{ readOnly: true }} />
+                        <TextField value={result.minutes ? `${result.minutes}`.padStart(2, '0') : ''} color="success" id="outlined-basic" label="Minutos" variant="filled" InputProps={{ readOnly: true }} />
                     </div>
                     <div id='divCopyResult'>
                         <Tooltip title="Clique para copiar o resultado">

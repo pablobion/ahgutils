@@ -7,11 +7,13 @@
 
 #modal {
     background-color: rgb(255, 255, 255);
+    border: 1px solid lightgray;
     border-radius: 20px;
     height: 88vh;
-    width: 600px;
+    width: 650px;
     padding: 20px 40px;
     z-index: 2;
+    color: #494949;
 
     display: flex;
     flex-direction: column;
@@ -80,7 +82,7 @@
     }
 
     button + button {
-        margin-left: 110px;
+        margin-left: 155px;
     }
 }
 
@@ -112,7 +114,7 @@
     #historyCalc{
         position: absolute;
         top: 9.5%;
-        margin-left: 70px;
+        margin-left: 78px;
     }
 }
 
@@ -120,7 +122,7 @@
 //Modal history
 .openHistory {
     transition: transform 0.5s ease-in-out;
-    transform: translateX(135%); /* Ou o valor que você preferir */
+    transform: translateX(134%); /* Ou o valor que você preferir */
 }
 
 .closeHistory {
@@ -131,6 +133,7 @@
 .modalHistory{
     position: absolute;
     background-color: whitesmoke;
+    border: 1px solid lightgray;
     width: 320px;
     height: 80%;
     border-radius: 0px 20px 20px 0px;

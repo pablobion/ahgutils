@@ -7,10 +7,12 @@
 
     #modalPerson{
         background-color: white;
+        border: 1px solid lightgray;
         padding: 50px;
         display: flex;
         align-items: center;
         border-radius: 20px;
+        width: 600px;
 
         flex-direction: column;
         .divPerson{

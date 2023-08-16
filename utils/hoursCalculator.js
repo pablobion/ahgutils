@@ -16,10 +16,13 @@ export const accToMinutes = (hours, minutes) =>  parseInt((hours * 60) + Number(
 
 export const sum = (arrayHours) =>  MinutesToHours(arrayHours.reduce((acc, hour) => acc + accToMinutes(hour.hours, hour.minutes), 0))
 
-const mountResult = seconds => ({hours: Math.abs(extractHoursFromSeconds(seconds)), minutes: Math.abs(extractMinutesFromSeconds(seconds))});
+const mountResult = seconds => ({hours: extractHoursFromSeconds(seconds), minutes: extractMinutesFromSeconds(seconds)});
 
-export const subtract = (arrayHours) => {
-    const lala = mountResult(arrayHours.map((hour, index) =>  hour.hours * 3600 + hour.minutes * 60).reduce((acc, curr) => acc - curr));
-    console.log(lala)
-    return lala
+export const subtract = (arrayHours) =>  mountResult(arrayHours.map((hour, index) =>  hour.hours * 3600 + hour.minutes * 60).reduce((acc, curr) => acc - curr));
+
+export const calcNightlyFactor = (hours, minutes ) => {
+    const minutesInSeconds = minutes ? (minutes * 60) : 0;
+    const totalSeconds = hours ? (hours * 3600) + minutesInSeconds : minutesInSeconds;
+
+    return !minutesInSeconds && !totalSeconds ? {} : mountResult(totalSeconds * 8 / 7);
 };

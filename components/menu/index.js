@@ -27,7 +27,7 @@ const Layout = ({ children }) => {
                 />
                 {optionsMenu.map(elem => (
                     <Tooltip title={elem.label}>  
-                        <div onClick={() => router.push(elem.path)} key={elem.name} className='menuOptionDiv'>{elem.icon}</div>
+                        <div onClick={() => router.push(elem.path)} key={elem.path} className='menuOptionDiv'>{elem.icon}</div>
                     </Tooltip>
                 ))}
             </div>
