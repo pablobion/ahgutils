@@ -23,10 +23,10 @@ const Layout = ({ children }) => {
                     width={80}
                     height={80}
                     onClick={() => router.push('/')}
-                    style={{ cursor: 'pointer' }}
+                    style={{ cursor: 'pointer', marginBottom: 25 }}
                 />
                 {optionsMenu.map(elem => (
-                    <Tooltip title={elem.label}>  
+                    <Tooltip title={elem.label} placement="right">  
                         <div onClick={() => router.push(elem.path)} key={elem.path} className='menuOptionDiv'>{elem.icon}</div>
                     </Tooltip>
                 ))}

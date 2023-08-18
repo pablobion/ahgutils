@@ -1,6 +1,7 @@
 import { ImCalculator } from 'react-icons/im';
-import {BsPeople} from 'react-icons/bs'
-import {MdNightlightRound} from 'react-icons/md'
+import {BsFillPeopleFill} from 'react-icons/bs'
+import {MdNightlightRound, MdPublishedWithChanges} from 'react-icons/md'
+import {IoCreate} from 'react-icons/io5'
 
 
 export const optionsMenu = [
@@ -15,7 +16,17 @@ export const optionsMenu = [
         label: 'Calculadora de horas noturnas'
     },
     {
-        icon: <BsPeople />,
+        icon: <MdPublishedWithChanges />,
+        path: '',
+        label: '(Em breve) Conversor de horas'
+    },
+    // {
+    //     icon: <IoCreate />,
+    //     path: '/',
+    //     label: '(Em breve) Gerador de informações'
+    // },
+    {
+        icon: <BsFillPeopleFill />,
         path: '/about',
         label: 'Colaboradores'
     },

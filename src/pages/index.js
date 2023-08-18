@@ -5,8 +5,7 @@ import React from 'react';
 function About() {
   return (
     <div>
-      <h1>Te amo joarle. Ass: Pablo </h1>
-      <h1>To construindo essa bomba ainda</h1>
+      <h1>Ainda não temos um painel, acesse as opções do menu</h1>
     </div>
   );
 }
