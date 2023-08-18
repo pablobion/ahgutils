@@ -66,7 +66,8 @@ const NightCalculator = () => {
     }
 
     const doCalc = () => {
-        const result = calcNightlyFactor(state.hours || 1, state.minutes)
+        if(state.hours === '' || Number(state.hours) === 0 ) return handleShowMessage({ message: 'Preencha os campos de horas e minutos', type: 'error' })
+        const result = calcNightlyFactor(state.hours)
         result.hours = `${result.hours}`.padStart(2, '0')
         result.minutes = `${result.minutes}`.padStart(2, '0')
         setExplainResult(doExplainResult())
