@@ -28,9 +28,11 @@ export const calcNightlyFactor = (hours, minutes ) => {
 };
 
 export const sexagesimalToCentesimal = (time) => {
-    const hours = Number(time.slice(0, 2))
-    const minutes = Number(time.slice(2))
-    const calc = (`${hours}.` + `${Math.floor(minutes * 1.67)}`.padStart(2, '0')).padStart(5, '⠀⠀')
+    time = time.replaceAll("_", '0')
+    const [hours, minutes] = time.split(':')
+    const calc = (`${hours}.` + `${Math.floor(minutes * 1.67)}`.padStart(2, '0'))
+
+    console.log(calc)
     return {
         to: 'centesimal',
         result: calc
@@ -38,9 +40,24 @@ export const sexagesimalToCentesimal = (time) => {
 }
 
 export const centesimalToSexagesimal = (time) => {
+    time = time.replaceAll("_", '0')
     let [hours, minutes] = time.split(".");
     return {
         to: 'sexagesimal',
         result: `${hours}:${Math.round(minutes / 1.67).toString().padStart(2, '0')}`
     };
+}
+
+export const switchSexagesimalCentesimal = (times) => {
+    let objReturn = {
+        centesimal: '',
+        sexagesimal: ''
+    }
+
+    console.log(times)
+
+    if (times.sexagesimal) objReturn.centesimal = sexagesimalToCentesimal(times.sexagesimal).result
+
+    if (times.centesimal) objReturn.sexagesimal = centesimalToSexagesimal(times.centesimal).result
+    return objReturn
 }

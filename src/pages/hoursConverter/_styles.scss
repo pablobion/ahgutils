@@ -21,7 +21,7 @@
         flex-direction: column;
         
         width: 610px;
-        height: 90vh;
+        height: 50vh;
         background-color: white;
         border: 1px solid lightgray;
         border-radius: 20px;
@@ -85,6 +85,15 @@
                 padding-left: 15px;
                 margin-bottom: 40px;
             }
+        }
+
+        #divButtonFooter {
+
+            width: 300px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 50px;
         }
     }
 }

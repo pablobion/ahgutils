@@ -17,14 +17,14 @@ export const optionsMenu = [
     },
     {
         icon: <MdPublishedWithChanges />,
-        path: '',
-        label: '(Em breve) Conversor de horas'
+        path: '/hoursConverter',
+        label: 'Conversor de horas'
     },
-    // {
-    //     icon: <IoCreate />,
-    //     path: '/',
-    //     label: '(Em breve) Gerador de informações'
-    // },
+    {
+        icon: <IoCreate />,
+        path: '/',
+        label: '(Em breve) Gerador de informações'
+    },
     {
         icon: <BsFillPeopleFill />,
         path: '/about',
