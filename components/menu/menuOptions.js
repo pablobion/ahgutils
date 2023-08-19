@@ -22,8 +22,8 @@ export const optionsMenu = [
     },
     {
         icon: <IoCreate />,
-        path: '/',
-        label: '(Em breve) Gerador de informações'
+        path: '/generateData',
+        label: 'Gerador de informações'
     },
     {
         icon: <BsFillPeopleFill />,
