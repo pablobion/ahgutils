@@ -28,6 +28,8 @@ const NightCalculator = () => {
     const handleChangeInput = (value, type) => {
         value = value.replace(/[^0-9.]+/, '');
         if (type === 'minutes' && value > 59) value = 59
+
+        console.log(value, 'dale')
         setState({ ...state, [type]: value })
     }
 
@@ -66,8 +68,9 @@ const NightCalculator = () => {
     }
 
     const doCalc = () => {
+        console.log(state.hours)
         if(state.hours === '' || Number(state.hours) === 0 ) return handleShowMessage({ message: 'Preencha os campos de horas e minutos', type: 'error' })
-        const result = calcNightlyFactor(state.hours)
+        const result = calcNightlyFactor(state.hours, state.minutes)
         result.hours = `${result.hours}`.padStart(2, '0')
         result.minutes = `${result.minutes}`.padStart(2, '0')
         setExplainResult(doExplainResult())

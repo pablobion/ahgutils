@@ -50,7 +50,7 @@ const NightCalculator = () => {
         }
 
         let response = typeDataToGenerate[type]()
-        response = removePontuation && type !== 'email' ? response.replace(/[^a-zA-Z0-9 ]/g, '') : response
+        response = !removePontuation && type !== 'email' ? response.replace(/[^a-zA-Z0-9 ]/g, '') : response
         setState({ ...state, [type]: response })
 
        // return typeDataToGenerate[type]()

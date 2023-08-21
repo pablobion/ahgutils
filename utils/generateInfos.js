@@ -1,7 +1,7 @@
 const names = [
     "Ana", "João", "Maria", "Pedro", "Sofia",
     "Lucas", "Mariana", "Mateus", "Isabela", "Rafael",
-    "Camila", "Gustavo", "Laura", "Enzo", "Larissa",
+    "Camila", "Gustavo", "Bruna", "Enzo", "Larissa",
     "Carlos", "Fernanda", "Bruno", "Juliana", "Daniel"
 ];
 
