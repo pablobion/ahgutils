@@ -20,9 +20,17 @@ export const generateFakePIS = (includePunctuation) => {
 }
 
 export const generateFakeCPF = () => {
-    const randomDigits = length => [...Array(length)].map(() => Math.floor(Math.random() * 10)).join('');
-    return `${randomDigits(3)}.${randomDigits(3)}.${randomDigits(3)}-${randomDigits(2)}`;
-}
+    const generateRandomDigits = length => [...Array(length)].map(() => Math.floor(Math.random() * 10)).join('');
+    const calculateDigit = cpfArray => (cpfArray.reduce((sum, digit, i) => sum + digit * (cpfArray.length + 1 - i), 0) * 10) % 11 % 10;
+
+    const firstNineDigits = generateRandomDigits(9);
+    const firstVerifierDigit = calculateDigit([...firstNineDigits]);
+    const secondVerifierDigit = calculateDigit([...firstNineDigits, firstVerifierDigit]);
+
+    const formattedCPF = `${firstNineDigits.slice(0, 3)}.${firstNineDigits.slice(3, 6)}.${firstNineDigits.slice(6, 9)}-${firstVerifierDigit}${secondVerifierDigit}`;
+
+    return formattedCPF;
+};
 
 export const  generateSingleEmail = () => {
     const randomName = names[Math.floor(Math.random() * names.length)];
