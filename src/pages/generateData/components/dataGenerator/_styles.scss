@@ -21,7 +21,7 @@
         flex-direction: column;
         
         width: 610px;
-        height: 80vh;
+        height: 85vh;
         background-color: white;
         border: 1px solid lightgray;
         border-radius: 20px;
@@ -33,9 +33,6 @@
             align-items: center;
             justify-content: space-around;
             margin: 20px;
-            h3 {
-                width: 90px;
-            }
 
             input {
                 min-width: 150px;

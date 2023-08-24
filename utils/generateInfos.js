@@ -2,21 +2,40 @@ const names = [
     "Ana", "João", "Maria", "Pedro", "Sofia",
     "Lucas", "Mariana", "Mateus", "Isabela", "Rafael",
     "Camila", "Gustavo", "Bruna", "Enzo", "Larissa",
-    "Carlos", "Fernanda", "Bruno", "Juliana", "Daniel"
+    "Carlos", "Fernanda", "Bruno", "Juliana", "Daniel",
+    "Laura", "Thiago", "Vitória", "Eduardo", "Beatriz",
+    "André", "Natália", "Gabriel", "Carolina", "Leonardo",
+    "Bianca", "Vinícius", "Amanda", "Rodrigo", "Letícia",
+    "Paulo", "Clara", "Ricardo", "Manuela", "Fábio"
 ];
 
 const lastNames = [
     "Silva", "Santos", "Souza", "Oliveira", "Pereira",
     "Rodrigues", "Almeida", "Ferreira", "Carvalho", "Gomes",
     "Martins", "Rocha", "Ribeiro", "Costa", "Araújo",
-    "Fernandes", "Cavalcanti", "Lima", "Barros", "Monteiro"
+    "Fernandes", "Cavalcanti", "Lima", "Barros", "Monteiro",
+    "Nascimento", "Mendes", "Azevedo", "Cunha", "Castro",
+    "Melo", "Cardoso", "Dias", "Pinto", "Freitas",
+    "Andrade", "Barbosa", "Sousa", "Nunes", "Leite",
+    "Correia", "Vieira", "Moura", "Machado", "Amaral"
 ];
 
 const domains = ["hotmail.com", "gmail.com"];
 
 export const generateFakePIS = (includePunctuation) => {
-    const pisDigits = Array.from({ length: 11 }, () => Math.floor(Math.random() * 10)).join('');
-    return pisDigits.replace(/(\d{3})(\d{5})(\d{2})(\d{1})/, '$1.$2.$3-$4')
+    const randomBase = Array.from({ length: 10 }, () => Math.floor(Math.random() * 10));
+    
+    let total = 0;
+    for (let i = 0; i < 10; i++) {
+        total += randomBase[i] * (10 - i);
+    }
+    
+    const remainder = total % 11;
+    const lastDigit = remainder < 2 ? 0 : 11 - remainder;
+    
+    const pisDigits = randomBase.join('') + lastDigit;
+    
+    return pisDigits.replace(/(\d{3})(\d{5})(\d{2})(\d{1})/, '$1.$2.$3-$4');
 }
 
 export const generateFakeCPF = () => {
@@ -41,10 +60,25 @@ export const  generateSingleEmail = () => {
     return email;
 }
 
+function gerarDigitoVerificador(cnpjParcial) {
+    let numeros = cnpjParcial.split('').map(Number);
+    let multiplicador = 2;
+    let soma = 0;
+    for (let i = numeros.length - 1; i >= 0; i--) {
+      soma += numeros[i] * multiplicador;
+      multiplicador = multiplicador === 9 ? 2 : multiplicador + 1;
+    }
+    const digito = 11 - (soma % 11);
+    return digito >= 10 ? 0 : digito;
+  }
 export const generateFakeCNPJ = () => {
-    const randomDigits = length => [...Array(length)].map(() => Math.floor(Math.random() * 10)).join('');
-    return `${randomDigits(2)}.${randomDigits(3)}.${randomDigits(3)}/0001-${randomDigits(2)}`;
-}
+    const cnpjParcial = Math.floor(Math.random() * 1000000000000).toString().padStart(12, '0');
+    const primeiroDigito = gerarDigitoVerificador(cnpjParcial);
+    const cnpjCompleto = `${cnpjParcial}${primeiroDigito}${gerarDigitoVerificador(cnpjParcial + primeiroDigito.toString())}`;
+    return `${cnpjCompleto.substring(0, 2)}.${cnpjCompleto.substring(2, 5)}.${cnpjCompleto.substring(5, 8)}/${cnpjCompleto.substring(8, 12)}-${cnpjCompleto.substring(12)}`;
+};
+
+
 
 export const generateRandomName = () => {
     const randomName = names[Math.floor(Math.random() * names.length)];
