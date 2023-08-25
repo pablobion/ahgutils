@@ -1,4 +1,5 @@
 export const validatePIS = (pis) => {
+    if(pis === '') return null
     // Remove qualquer formatação do número de PIS
     const cleanPIS = pis.replace(/\D/g, '');
 
@@ -20,6 +21,7 @@ export const validatePIS = (pis) => {
 }
 
 export const validateCPF = (cpf) => {
+    if(cpf === '') return null
     const cleanCPF = cpf.replace(/\D/g, '');
 
     if (cleanCPF.length !== 11) return false;
@@ -54,6 +56,7 @@ export const validateCPF = (cpf) => {
 }
 
 export const validateCNPJ = (cnpj) => {
+    if(cnpj === '') return null
     const cleanCNPJ = cnpj.replace(/\D/g, '');
 
     if (cleanCNPJ.length !== 14) return false;
@@ -86,6 +89,7 @@ export const validateCNPJ = (cnpj) => {
 }
 
 export const validateEmail = (email) => {
+    if(email === '') return null
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
 }
