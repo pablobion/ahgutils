@@ -11,7 +11,15 @@ import { calcNightlyFactor } from '../../../utils/hoursCalculator'
 
 import AlertDialog from '../../../components/alertDialog/AlertDialog'
 
+
 const NightCalculator = () => {
+    return (
+        <div id='container'>
+            <NightCalculatorComponent/>
+        </div>
+    )
+}
+export const NightCalculatorComponent = () => {
 
     const [snackbar, setSnackbar] = useState({ message: '', open: false, type: 'success' });
     const [state, setState] = useState({ hours: '', minutes: '' })
@@ -69,7 +77,7 @@ const NightCalculator = () => {
 
     const doCalc = () => {
         console.log(state.hours)
-        if(state.hours === '' || Number(state.hours) === 0 ) return handleShowMessage({ message: 'Preencha os campos de horas e minutos', type: 'error' })
+        if((state.hours === '' || Number(state.hours) === 0) && ((state.minutes === '' || Number(state.minutes) === 0)) ) return handleShowMessage({ message: 'Preencha os campos de horas e minutos', type: 'error' })
         const result = calcNightlyFactor(state.hours, state.minutes)
         result.hours = `${result.hours}`.padStart(2, '0')
         result.minutes = `${result.minutes}`.padStart(2, '0')
@@ -88,7 +96,7 @@ const NightCalculator = () => {
     }
 
     return (
-        <div id='container'>
+        <>
             <div id='modal'>
                 <div id='header'>
                     <h2>Calculadora de horas noturnas</h2>
@@ -140,7 +148,7 @@ const NightCalculator = () => {
             <Snackbar open={snackbar.open} autoHideDuration={2000} onClose={handleClose}>
                 <Alert onClose={handleClose} severity={snackbar.type} sx={{ width: '100%' }}>{snackbar.message}</Alert>
             </Snackbar>
-        </div>
+        </>
 
     )
 
