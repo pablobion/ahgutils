@@ -13,6 +13,13 @@ import './_styles.scss'
 import { generateFakePIS, generateFakeCPF, generateSingleEmail, generateFakeCNPJ, generateRandomName } from '../../../../../utils/generateInfos'
 
 const DataGenerator = () => {
+    return (
+        <div id='container'>
+            <DataGeneratorComponent/>
+        </div>
+    )
+}
+export const DataGeneratorComponent = () => {
 
 
     const [state, setState] = useState({
@@ -60,7 +67,7 @@ const DataGenerator = () => {
     }
 
     return (
-        <div id='container'>
+        <>
             <div id='modal'>
                 <div id='header'>
                     <h2>Gerar dados</h2>
@@ -94,7 +101,7 @@ const DataGenerator = () => {
             <Snackbar open={snackbar.open} autoHideDuration={2000} onClose={handleClose}>
                 <Alert onClose={handleClose} severity={snackbar.type} sx={{ width: '100%' }}>{snackbar.message}</Alert>
             </Snackbar>
-        </div>
+        </>
 
     )
 

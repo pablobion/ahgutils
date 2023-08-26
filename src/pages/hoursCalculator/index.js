@@ -102,6 +102,7 @@ function About() {
     return (
         <div className='container'>
             <div id='modal'>
+                <h2 id='title'>Calculadora de horas</h2>
                 <div id='painelHoursInputCalculator'>
                     <div className='painelHoursInputCalculatorLeft'>
                         {state.map((elem, index) => (

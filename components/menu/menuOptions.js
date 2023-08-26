@@ -1,10 +1,16 @@
-import { ImCalculator } from 'react-icons/im';
-import {BsFillPeopleFill} from 'react-icons/bs'
+import { ImCalculator, ImHome } from 'react-icons/im';
+import {BsFillPeopleFill, BsFillCalendarMonthFill} from 'react-icons/bs'
 import {MdNightlightRound, MdPublishedWithChanges} from 'react-icons/md'
 import {IoCreate} from 'react-icons/io5'
 
 
+
 export const optionsMenu = [
+    {
+        icon: <ImHome />,
+        path: '/',
+        label: 'Início'
+    },
     {
         icon: <ImCalculator />,
         path: '/hoursCalculator',
@@ -24,6 +30,11 @@ export const optionsMenu = [
         icon: <IoCreate />,
         path: '/generateData',
         label: 'Gerador de informações'
+    },
+    {
+        icon: <BsFillCalendarMonthFill />,
+        path: '',
+        label: '(Em breve)'
     },
     {
         icon: <BsFillPeopleFill />,

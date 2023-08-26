@@ -1,0 +1,12 @@
+#container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 91vw;
+
+    #containerFlush{
+        display: flex;
+        justify-content: center;
+        margin: 20px 0px;
+    }
+}

@@ -12,8 +12,15 @@ import './_styles.scss'
 
 import { validateCPF, validateCNPJ, validatePIS, validateEmail } from '../../../../../utils/validatorInfos'
 
-
 const DataValidator = () => {
+    return (
+        <div id='container'>
+            <DataValidatorComponent/>
+        </div>
+    )
+}
+
+export const DataValidatorComponent = () => {
 
 
     const [state, setState] = useState({
@@ -62,7 +69,10 @@ const DataValidator = () => {
         handleShowMessage({ message: 'Copiado para a área de transferência', type: 'success' })
     }
 
-    const changeColorInput = (data) => isValid[data] === null ? '' : isValid[data] ? 'success' : 'error';
+    const changeColorInput = (data) => {
+        console.log(isValid[data] )
+        return isValid[data] === null ? '' : isValid[data] ? 'success' : 'error';
+    }
 
     const handleCleanData = () => {
         setState({ pis: '', cpf: '', cnpj: '', email: '' })
@@ -70,7 +80,7 @@ const DataValidator = () => {
     }
 
     return (
-        <div id='container'>
+        <>
 
             <div id='modal'>
                 <div id='header'>
@@ -103,7 +113,7 @@ const DataValidator = () => {
             <Snackbar open={snackbar.open} autoHideDuration={2000} onClose={handleClose}>
                 <Alert onClose={handleClose} severity={snackbar.type} sx={{ width: '100%' }}>{snackbar.message}</Alert>
             </Snackbar>
-        </div>
+        </>
 
     )
 

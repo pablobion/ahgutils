@@ -14,7 +14,16 @@ import { sexagesimalToCentesimal, centesimalToSexagesimal, switchSexagesimalCent
 
 import AlertDialog from '../../../components/alertDialog/AlertDialog'
 
-const NightCalculator = () => {
+
+const HoursConverter = () => {
+    return (
+        <div id='container'>
+            <HoursConverterComponent/>
+
+        </div>
+    )
+}
+export const HoursConverterComponent = () => {
 
 
     const [state, setState] = useState({
@@ -61,7 +70,7 @@ const NightCalculator = () => {
     }
 
     return (
-        <div id='container'>
+        <>
             <div id='modal'>
                 <div id='header'>
                     <h2>Converter Horas</h2>
@@ -130,10 +139,10 @@ const NightCalculator = () => {
             <Snackbar open={snackbar.open} autoHideDuration={2000} onClose={handleClose}>
                 <Alert onClose={handleClose} severity={snackbar.type} sx={{ width: '100%' }}>{snackbar.message}</Alert>
             </Snackbar>
-        </div>
+        </>
 
     )
 
 }
 
-export default NightCalculator
+export default HoursConverter

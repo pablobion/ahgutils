@@ -7,6 +7,7 @@ import '../../styles/app.scss'
 
 import {optionsMenu} from './menuOptions'
 import logo from '../../assets/logo.png'
+import fitaAmarela from '../../assets/fita_amarela.png'
 
 import {Tooltip} from '@mui/material';
 
@@ -23,8 +24,16 @@ const Layout = ({ children }) => {
                     width={80}
                     height={80}
                     onClick={() => router.push('/')}
-                    style={{ cursor: 'pointer', marginBottom: 25 }}
+                    style={{ cursor: 'pointer', marginTop: 15 }}
                 />
+                {/* <Image
+                    src={fitaAmarela}
+                    width={70}
+                    height={80}
+                    onClick={() => router.push('/')}
+                    style={{ cursor: 'pointer', marginTop: 15 }}
+                    id='easterEgg'
+                /> */}
                 {optionsMenu.map(elem => (
                     <Tooltip title={elem.label} placement="right">  
                         <div onClick={() => router.push(elem.path)} key={elem.path} className='menuOptionDiv'>{elem.icon}</div>
