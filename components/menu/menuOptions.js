@@ -33,8 +33,8 @@ export const optionsMenu = [
     },
     {
         icon: <BsFillCalendarMonthFill />,
-        path: '',
-        label: '(Em breve)'
+        path: '/bankCycle',
+        label: 'Ciclo de banco de horas'
     },
     {
         icon: <BsFillPeopleFill />,

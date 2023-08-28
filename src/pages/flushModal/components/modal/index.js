@@ -7,6 +7,7 @@ import { NightCalculatorComponent } from '../../../nightCalculator'
 import { HoursConverterComponent } from '../../../hoursConverter'
 import { DataValidatorComponent } from '../../../generateData/components/dataValidator'
 import { DataGeneratorComponent } from '../../../generateData/components/dataGenerator'
+import { BankCycleComponent } from '../../../bankCycle'
 
 import AlertDialog from '../../../../../components/alertDialog/AlertDialog'
 
@@ -19,6 +20,7 @@ import './_styles.scss'
 import { AiOutlinePlusCircle } from 'react-icons/ai'
 
 import { ImCalculator } from 'react-icons/im';
+import { BsFillCalendarMonthFill } from 'react-icons/bs'
 import { MdNightlightRound, MdPublishedWithChanges, MdDeleteOutline } from 'react-icons/md'
 import { IoCreate, IoCreateOutline } from 'react-icons/io5'
 
@@ -48,6 +50,7 @@ const BlankComponent = ({ handleClickElement }) => {
                                 <MdPublishedWithChanges onClick={() => handleClickElement('hoursConverter')} style={styles} />
                                 <IoCreate onClick={() => handleClickElement('dataGenerator')} style={styles} />
                                 <IoCreateOutline onClick={() => handleClickElement('dataValidator')} style={styles} />
+                                <BsFillCalendarMonthFill onClick={() => handleClickElement('bankCycle')} style={styles} />
                             </div>
                         </div>
                     )}>
@@ -68,6 +71,7 @@ const Modal = ({ index, componentPage, handleChangeConfiguration }) => {
             'hoursConverter': <><Fab onClick={() => teste('')} style={deleteStyle}><MdDeleteOutline /></Fab><HoursConverterComponent /></>,
             'dataGenerator': <><Fab onClick={() => teste('')} style={deleteStyle}><MdDeleteOutline /></Fab><DataGeneratorComponent /></>,
             'dataValidator': <><Fab onClick={() => teste('')} style={deleteStyle}><MdDeleteOutline /></Fab><DataValidatorComponent /></>,
+            'bankCycle': <><Fab onClick={() => teste('')} style={deleteStyle}><MdDeleteOutline /></Fab><BankCycleComponent /></>,
             'blank': <BlankComponent handleClickElement={teste} />,
         }
 

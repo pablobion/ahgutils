@@ -61,3 +61,16 @@ export const switchSexagesimalCentesimal = (times) => {
     if (times.centesimal) objReturn.sexagesimal = centesimalToSexagesimal(times.centesimal).result
     return objReturn
 }
+
+export const bankCycleCalc = (data, quantidadeMeses) => {
+    const [ano, mes] = data.split('-').map(Number);
+
+    const mesesPorAno = 12;
+    const totalMeses = mes - 1 + quantidadeMeses;
+  
+    const novoAno = ano + Math.floor(totalMeses / mesesPorAno);
+    const novoMes = (totalMeses % mesesPorAno) + 1;
+  
+    return `${novoAno}-${novoMes.toString().padStart(2, '0')}`;
+  }
+  

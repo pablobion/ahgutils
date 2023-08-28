@@ -1,0 +1,51 @@
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#modal {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid lightgray;
+    border-radius: 20px;
+    height: 88vh;
+    width: 650px;
+    padding: 20px 40px;
+    z-index: 2;
+    color: #494949;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1 {
+        margin: 30px;
+    }
+
+    h3 {
+        margin: 10px 0px;
+    }
+
+    input {
+        font-size: 22px;
+    }
+
+    #inputMonth {
+        padding: 20px;
+        border: 1px solid lightgray;
+        border-radius: 10px;
+        width: 280px;
+        margin-bottom: 20px;
+    }
+
+    #title {
+        margin: 20px 0px
+    }
+
+    #buttonResult {
+        margin-top: 30px;
+        margin-bottom: 100px;
+    }
+
+}
