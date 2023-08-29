@@ -13,13 +13,14 @@ export const BankCycleComponent = () => {
 
     const [initial, setInital] = useState({
         yearMonth: '2023-01',
-        months: ''
+        months: 1
 
     })
 
     const doCalc = () => {
-        const response = bankCycleCalc(initial.yearMonth, initial.months)
-
+        if(parseInt(initial.months) <= 0 ) return false
+        const response = bankCycleCalc(initial.yearMonth, parseInt(initial.months))
+        console.log(response)
         setResult(response)
     }
 
@@ -36,7 +37,7 @@ export const BankCycleComponent = () => {
 
             <h3>Data de inicio do ciclo</h3>
             <input value={initial.yearMonth} onChange={(e) => handleChangeMonth(e, 'yearMonth')} id='inputMonth' type="month" />
-            <TextField onChange={(e) => handleChangeMonth(e, 'months')} id="outlined-basic" label="Quantidade de meses" variant="outlined" />
+            <TextField value={initial.months} onChange={(e) => handleChangeMonth(e, 'months')} id="outlined-basic" label="Quantidade de meses" variant="outlined" />
             <Button id='buttonResult' onClick={() => doCalc()} style={{ backgroundColor: "#0078d4", minWidth: 147 }} variant="contained">Calcular</Button>
             {
                 result && (
