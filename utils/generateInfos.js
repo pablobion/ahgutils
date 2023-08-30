@@ -22,20 +22,37 @@ const lastNames = [
 
 const domains = ["hotmail.com", "gmail.com"];
 
-export const generateFakePIS = (includePunctuation) => {
-    const randomBase = Array.from({ length: 10 }, () => Math.floor(Math.random() * 10));
-    
-    let total = 0;
+
+export const generateFakePIS = () => {
+    let pis = '';
+
+    // Gerando os 10 primeiros dígitos aleatórios
     for (let i = 0; i < 10; i++) {
-        total += randomBase[i] * (10 - i);
+        pis += Math.floor(Math.random() * 10);
     }
-    
-    const remainder = total % 11;
-    const lastDigit = remainder < 2 ? 0 : 11 - remainder;
-    
-    const pisDigits = randomBase.join('') + lastDigit;
-    
-    return pisDigits.replace(/(\d{3})(\d{5})(\d{2})(\d{1})/, '$1.$2.$3-$4');
+
+    // Calculando o último dígito verificador
+    let soma = 0;
+    let multiplicador = 3;
+
+    for (let i = 0; i < 10; i++) {
+        soma += parseInt(pis.charAt(i)) * multiplicador;
+        multiplicador--;
+
+        if (multiplicador === 1) {
+            multiplicador = 9;
+        }
+    }
+
+    let resto = soma % 11;
+    let digitoVerificador = 11 - resto;
+
+    if (digitoVerificador === 10 || digitoVerificador === 11) {
+        digitoVerificador = 0;
+    }
+
+    pis += digitoVerificador;
+    return pis.replace(/(\d{3})(\d{5})(\d{2})(\d{1})/, '$1.$2.$3-$4');
 }
 
 export const generateFakeCPF = () => {

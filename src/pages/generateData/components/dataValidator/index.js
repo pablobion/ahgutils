@@ -61,7 +61,7 @@ export const DataValidatorComponent = () => {
         }
 
         setIsValid(typeDataToGenerate)
-        handleShowMessage({ message: 'Dados validados com sucesso', type: 'success' })
+        handleShowMessage({ message: 'Validando dados', type: 'success' })
     }
 
     const handleCopy = (data) => {

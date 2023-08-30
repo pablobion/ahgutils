@@ -1,23 +1,28 @@
 export const validatePIS = (pis) => {
-    if(pis === '') return null
-    // Remove qualquer formatação do número de PIS
-    const cleanPIS = pis.replace(/\D/g, '');
-
-    if (cleanPIS.length !== 11) {
-        return false; // O número de PIS deve ter exatamente 11 dígitos
+    // Remover caracteres não numéricos
+    pis = pis.replace(/\D/g, '');
+    // Verificar se o número tem 11 dígitos
+    if (pis.length !== 11) {
+        return false;
     }
 
-    const digits = cleanPIS.split('').map(Number);
-
+    // Calcular dígito verificador
+    const weight = [3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
     let total = 0;
     for (let i = 0; i < 10; i++) {
-        total += digits[i] * (10 - i);
+        total += parseInt(pis.charAt(i)) * weight[i];
     }
 
     const remainder = total % 11;
-    const expectedLastDigit = remainder < 2 ? 0 : 11 - remainder;
+    const expectedDigit = 11 - remainder;
+    const lastDigit = parseInt(pis.charAt(10));
 
-    return digits[10] === expectedLastDigit;
+    // Verificar se o último dígito é igual ao dígito calculado
+    if (expectedDigit === 10 || expectedDigit === 11) {
+        return lastDigit === 0;
+    } else {
+        return lastDigit === expectedDigit;
+    }
 }
 
 export const validateCPF = (cpf) => {
