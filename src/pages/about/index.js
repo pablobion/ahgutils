@@ -10,7 +10,7 @@ function About() {
     },
     {
       name: 'Andrey Costa',
-      image: 'nophoto.jpg'
+      image: 'andrey.jpg'
     },
     {
       name: 'Pablo Bion',

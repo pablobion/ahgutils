@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <Menu>
-      <div className='page'>
+      <div className='page' >
 
         <Component {...pageProps} />
 

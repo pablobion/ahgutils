@@ -132,8 +132,8 @@ export const HoursConverterComponent = () => {
                     <p style={{ cursor: 'pointer' }} onClick={() => handleCopy(state.result.sexagesimal)}><MdContentCopy /></p>
                 </div>
                 <div id='divButtonFooter'>
-                    <Button variant="text" onClick={() => handleCleanInputs()}><p style={{ cursor: 'pointer',  }} size='small'><AiOutlineClear /></p></Button>
                     <Button onClick={() => doCalc()} style={{ backgroundColor: "#0078d4", minWidth: 147 }} variant="contained">Calcular</Button>
+                    <Button variant="text" onClick={() => handleCleanInputs()}><p style={{ cursor: 'pointer',  }} size='small'><AiOutlineClear /></p></Button>
                 </div>
             </div>
             <Snackbar open={snackbar.open} autoHideDuration={2000} onClose={handleClose}>

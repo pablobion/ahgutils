@@ -46,15 +46,15 @@ const Layout = ({ children }) => {
     }, []);
 
     return (
-        <div className="container" onMouseMove={handleMouseMove}>
+        <div className="container" onMouseMove={handleMouseMove} style={{backgroundColor: '#232329'}}>
             <div className="menu">
-                <Image
+                {/* <Image
                     src={logo}
                     width={80}
                     height={80}
                     onClick={() => router.push('/')}
                     style={{ cursor: 'pointer', marginTop: 15 }}
-                />
+                /> */}
                 {cursorImageSrc[currentMonth] && (
                     <Image
                         src={cursorImageSrc[currentMonth]}

@@ -17,9 +17,11 @@ export const BankCycleComponent = () => {
 
     })
 
-    const doCalc = () => {
-        if(parseInt(initial.months) <= 0 ) return false
-        const response = bankCycleCalc(initial.yearMonth, parseInt(initial.months))
+    const [runNextCycle, setRunNextCycle] = useState(false)
+
+    const doCalc = (yearMonth, months) => {
+        if(parseInt(months) <= 0 ) return false
+        const response = bankCycleCalc(yearMonth, parseInt(months))
         console.log(response)
         setResult(response)
     }
@@ -36,14 +38,25 @@ export const BankCycleComponent = () => {
             <h1>Ciclo de banco de horas</h1>
 
             <h3>Data de inicio do ciclo</h3>
-            <input value={initial.yearMonth} onChange={(e) => handleChangeMonth(e, 'yearMonth')} id='inputMonth' type="month" />
-            <TextField value={initial.months} onChange={(e) => handleChangeMonth(e, 'months')} id="outlined-basic" label="Quantidade de meses" variant="outlined" />
-            <Button id='buttonResult' onClick={() => doCalc()} style={{ backgroundColor: "#0078d4", minWidth: 147 }} variant="contained">Calcular</Button>
+            <input disabled={runNextCycle} value={initial.yearMonth} onChange={(e) => handleChangeMonth(e, 'yearMonth')} id='inputMonth' type="month" />
+            <TextField disabled={runNextCycle} value={initial.months} onChange={(e) => handleChangeMonth(e, 'months')} id="outlined-basic" label="Quantidade de meses" variant="outlined" />
+            <Button id='buttonResult' onClick={() => {
+                doCalc(initial.yearMonth, initial.months);
+                setRunNextCycle(false)
+            }} style={{ backgroundColor: "#0078d4", minWidth: 147 }} variant="contained">Calcular</Button>
             {
                 result && (
                     <>
                         <h3>Final do ciclo</h3>
                         <input value={result} onChange={(e) => handleChangeMonth(e, 'yearMonth')} id='inputMonth' type="month" />
+                        { initial.months > 1 && (
+                            <Button id='buttonResult' onClick={() => {
+                                doCalc(result, initial.months);
+                                setRunNextCycle(true)
+                            }} style={{ backgroundColor: "DarkGreen", minWidth: 147 }} variant="contained">Calcular próximo ciclo</Button>
+                        )
+
+                        }
                     </>
                 )
             }
