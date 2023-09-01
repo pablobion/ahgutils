@@ -56,20 +56,21 @@ const Layout = ({ children }) => {
                     style={{ cursor: 'pointer', marginTop: 15 }}
                 /> */}
                 {cursorImageSrc[currentMonth] && (
-                    <Image
-                        src={cursorImageSrc[currentMonth]}
-                        width={60}
-                        onClick={() => router.push('/')}
-                        style={{ cursor: 'pointer', marginTop: 15 }}
-                        id='easterEgg'
-                    />
+                    <Tooltip title='Setembro Amarelo'>
+                        <Image
+                            src={cursorImageSrc[currentMonth]}
+                            width={60}
+                            style={{ cursor: 'pointer', marginTop: 15 }}
+                            id='easterEgg'
+                        />
+                      </Tooltip>
                 )}
 
 
-                {
+                {/* {
                     // Natal
                     currentMonth === 12 && (<Snowfall snowflakeCount={150} />)
-                }
+                } */}
 
                 { // Outubro Rosa
                     currentMonth === 10 && (
@@ -87,7 +88,7 @@ const Layout = ({ children }) => {
 
                     )
                 }
-                { // Festa junina
+                {/* { // Festa junina
                     currentMonth === 6 && (
                         <>
                             <Image
@@ -116,9 +117,9 @@ const Layout = ({ children }) => {
                             />
                         </>
                     )
-                }
+                } */}
                 {optionsMenu.map(elem => (
-                    <Tooltip key={elem.label} title={currentMonth === 10 ? `🧛🕯️ ${elem.label} 🧟‍♀️🎃` : elem.label} placement="right">
+                    <Tooltip key={elem.label} title={currentMonth === 99 ? `🧛🕯️ ${elem.label} 🧟‍♀️🎃` : elem.label} placement="right">
                         <div onClick={() => router.push(elem.path)} key={elem.path} className='menuOptionDiv'>{elem.icon}</div>
                     </Tooltip>
                 ))}
