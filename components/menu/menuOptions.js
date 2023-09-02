@@ -1,5 +1,5 @@
 import { ImCalculator, ImHome } from 'react-icons/im';
-import {BsFillPeopleFill, BsFillCalendarMonthFill} from 'react-icons/bs'
+import {BsFillPeopleFill, BsFillCalendarMonthFill, BsLink45Deg} from 'react-icons/bs'
 import {MdNightlightRound, MdPublishedWithChanges} from 'react-icons/md'
 import {IoCreate} from 'react-icons/io5'
 
@@ -35,6 +35,11 @@ export const optionsMenu = [
         icon: <BsFillCalendarMonthFill />,
         path: '/bankCycle',
         label: 'Ciclo de banco de horas'
+    },
+    {
+        icon: <BsLink45Deg />,
+        path: '/quickLinks',
+        label: 'Links Rápidos'
     },
     {
         icon: <BsFillPeopleFill />,

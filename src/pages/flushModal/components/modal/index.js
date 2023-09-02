@@ -8,6 +8,7 @@ import { HoursConverterComponent } from '../../../hoursConverter'
 import { DataValidatorComponent } from '../../../generateData/components/dataValidator'
 import { DataGeneratorComponent } from '../../../generateData/components/dataGenerator'
 import { BankCycleComponent } from '../../../bankCycle'
+import { QuickLinkComponent } from '../../../quickLinks'
 
 import AlertDialog from '../../../../../components/alertDialog/AlertDialog'
 
@@ -20,7 +21,7 @@ import './_styles.scss'
 import { AiOutlinePlusCircle } from 'react-icons/ai'
 
 import { ImCalculator } from 'react-icons/im';
-import { BsFillCalendarMonthFill } from 'react-icons/bs'
+import { BsFillCalendarMonthFill, BsLink45Deg } from 'react-icons/bs'
 import { MdNightlightRound, MdPublishedWithChanges, MdDeleteOutline } from 'react-icons/md'
 import { IoCreate, IoCreateOutline } from 'react-icons/io5'
 
@@ -51,6 +52,7 @@ const BlankComponent = ({ handleClickElement }) => {
                                 <IoCreate onClick={() => handleClickElement('dataGenerator')} style={styles} />
                                 <IoCreateOutline onClick={() => handleClickElement('dataValidator')} style={styles} />
                                 <BsFillCalendarMonthFill onClick={() => handleClickElement('bankCycle')} style={styles} />
+                                <BsLink45Deg onClick={() => handleClickElement('quickLinks')} style={styles} />
                             </div>
                         </div>
                     )}>
@@ -72,6 +74,7 @@ const Modal = ({ index, componentPage, handleChangeConfiguration }) => {
             'dataGenerator': <><Fab onClick={() => teste('')} style={deleteStyle}><MdDeleteOutline /></Fab><DataGeneratorComponent /></>,
             'dataValidator': <><Fab onClick={() => teste('')} style={deleteStyle}><MdDeleteOutline /></Fab><DataValidatorComponent /></>,
             'bankCycle': <><Fab onClick={() => teste('')} style={deleteStyle}><MdDeleteOutline /></Fab><BankCycleComponent /></>,
+            'quickLinks': <><Fab onClick={() => teste('')} style={deleteStyle}><MdDeleteOutline /></Fab><QuickLinkComponent /></>,
             'blank': <BlankComponent handleClickElement={teste} />,
         }
 
