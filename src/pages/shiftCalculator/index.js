@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './_styles.scss'
 
-import { sum, subtract } from '../../../utils/hoursCalculator'
+import { shiftCalculatorHours} from '../../../utils/hoursCalculator'
 
 import { Button, TextField, Tooltip, Snackbar, Alert, Checkbox } from '@mui/material';
 import Fab from '@mui/material/Fab';
@@ -20,8 +20,8 @@ import { PiClockCounterClockwiseBold } from 'react-icons/pi'
 
 function ShiftCalculator() {
     const [snackbar, setSnackbar] = useState({ message: '', open: false, type: 'success' });
-    const [result, setResult] = useState({ hours: '', minutes: '' });
-    const [state, setState] = useState([{ hours: '', minutes: '' }, { hours: '', minutes: '' }])
+    const [result, setResult] = useState({ totalHours: 0, periods: [] });
+    const [state, setState] = useState(['08:00', '12:00', '13:00', '17:00'])
     const [history, setHistory] = useState([])
 
     const [isDivMoved, setIsDivMoved] = useState(false);
@@ -40,40 +40,27 @@ function ShiftCalculator() {
 
     const handleAddNewInputs = () => {
         const atualInputs = state;
-        if (atualInputs.length === 3) return handleShowMessage({ message: 'Não é possivel adicionar mais campos', type: 'error' });
-        setState([...atualInputs, { hours: '', minutes: '' }])
+        if (atualInputs.length > 5) return handleShowMessage({ message: 'Não é possivel adicionar mais campos', type: 'error' });
+        setState([...atualInputs, '', ''])
     }
 
     const handleCleanInputs = () => {
         handleShowMessage({ message: 'Todos os campos foram limpos', type: 'success' })
-        setState([{ hours: '', minutes: '' }, { hours: '', minutes: '' }])
+        setState(['08:00', '12:00', '13:00', '17:00'])
         setResult({ hours: '', minutes: '' })
     }
 
-    const handleChangeInput = ({ value, index, inputType }) => {
+    const handleChangeInput = (value, index) => {
         const atualInputs = state;
-        value = value.replace(/[^0-9.]+/, '');
-        if (inputType === 'minutes' && value > 59) value = 59
-        atualInputs[index][inputType] = value;
-
+        atualInputs[index] = value;
+        console.log(atualInputs)
         setState([...atualInputs])
     }
 
-    const createHistory = ({ resultHours, type }) => {
-        const dataAtual = new Date();
-        const dataFormatada = `${dataAtual.getDate().toString().padStart(2, '0')}/${(dataAtual.getMonth() + 1).toString().padStart(2, '0')}/${dataAtual.getFullYear()} | ${dataAtual.getHours().toString().padStart(2, '0')}:${dataAtual.getMinutes().toString().padStart(2, '0')}`;
-        const historyArray = [{ resultHours, inputs: JSON.parse(JSON.stringify(state)), dti: dataFormatada, type }, ...history].slice(0, 7);
-        localStorage.setItem("historyCalculator", JSON.stringify(historyArray));
-        setHistory(historyArray)
-    }
-
-    const doCalc = ({ type, addHistory }) => {
-        const resultHours = type === 'sum' ? sum(state) : subtract(state);
-        console.log(resultHours)
-        setResult({ hours: '', minutes: '' })
-        setTimeout(() => setResult(resultHours), 150);
-
-        if (addHistory) createHistory({ resultHours, type})
+    const doCalc = () => {
+        const haha = shiftCalculatorHours(state)
+        console.log(haha);
+        setResult(haha)
     }
 
     const clickToCopy = () => {
@@ -87,18 +74,22 @@ function ShiftCalculator() {
                 <h2 id='title'>Calculadora de jornada (Beta)</h2>
                 <div id='painelHoursInputCalculator'>
                     <div className='painelHoursInputCalculatorLeft'>
-                        {state.map((elem, index) => (
-                            <div style={{display: 'flex'}}>
-                                <div className='divInputs'>
-                                    <p>Entrada {index+1}</p>
-                                    <TextField type='time' />    
-                                </div>
-                                <div className='divInputs'>
-                                    <p>Saida {index+1}</p>
-                                    <TextField type='time' />    
-                                </div>
-                            </div>
-                        ))}
+                        {state.map((elem, index) => {
+                            if(index % 2 === 0){
+                                return (
+                                    <div style={{display: 'flex'}}>
+                                        <div className='divInputs'>
+                                            <p>Entrada {index / 2 + 1}</p>
+                                            <TextField type='time' value={elem} onChange={(e) => handleChangeInput(e.target.value, index)} />    
+                                        </div>
+                                        <div className='divInputs'>
+                                            <p>Saida {index / 2 + 1}</p>
+                                            <TextField type='time' value={state[index +1]} onChange={(e) => handleChangeInput(e.target.value, index+1)} />    
+                                        </div>
+                                    </div>
+                                )
+                            }
+                        })}
                     </div>
                     <div className='painelHoursInputCalculatorRight'>
                         <div>
@@ -115,7 +106,7 @@ function ShiftCalculator() {
                     </div>
                 </div>
 
-                <div style={{display: 'flex', alignItems: 'center'}}>
+                {/* <div style={{display: 'flex', alignItems: 'center'}}>
                     <Checkbox label='jxhjdij' defaultChecked />
                     <p>Ativar calculo noturno</p> 
                 </div>
@@ -125,7 +116,7 @@ function ShiftCalculator() {
                     <p>Fim</p>
                     <TextField style={{marginLeft: 10}}  type='time' />    
                 </div>
-
+ */}
 
                 <Button onClick={() => doCalc()} style={{ backgroundColor: "#0078d4", minWidth: 147 }} variant="contained">Calcular</Button>
          
@@ -133,12 +124,13 @@ function ShiftCalculator() {
                 <div className='divider' />
                 <h2>Resultado</h2>
                 <div className='resultDiv'>
-                    <p>sisduidsuhdsuhd</p>
-                    <div id='divCopyResult'>
+                    <p>Total de horas trabalhadas: {result.totalHours}</p>
+                    {/* <p>total de horas trabalhadas (com intervalo): {result.totalHours}</p> */}
+                    {/* <div id='divCopyResult'>
                         <Tooltip title="Clique para copiar o resultado">
                             <Button onClick={() => clickToCopy()} size='small' variant="text" style={{ fontSize: 24 }}><MdContentCopy /></Button>
                         </Tooltip>
-                    </div>
+                    </div> */}
                 </div>
             </div>
 

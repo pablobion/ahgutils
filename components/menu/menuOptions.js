@@ -1,7 +1,8 @@
 import { ImCalculator, ImHome } from 'react-icons/im';
-import {BsFillPeopleFill, BsFillCalendarMonthFill, BsLink45Deg} from 'react-icons/bs'
+import {BsFillPeopleFill, BsFillCalendarMonthFill, BsLink45Deg, BsCalendarWeek} from 'react-icons/bs'
 import {MdNightlightRound, MdPublishedWithChanges} from 'react-icons/md'
 import {IoCreate} from 'react-icons/io5'
+import {GrSchedules} from 'react-icons/gr'
 
 
 
@@ -30,6 +31,11 @@ export const optionsMenu = [
         icon: <IoCreate />,
         path: '/generateData',
         label: 'Gerador de informações'
+    },
+    {
+        icon: <BsCalendarWeek />,
+        path: '/shiftCalculator',
+        label: 'Calculadora de jornada (BETA)'
     },
     {
         icon: <BsFillCalendarMonthFill />,

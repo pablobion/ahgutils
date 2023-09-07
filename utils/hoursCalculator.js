@@ -74,6 +74,36 @@ export const bankCycleCalc = (data, quantidadeMeses) => {
     return `${novoAno}-${novoMes.toString().padStart(2, '0')}`;
 }
 
+export const shiftCalculatorHours = (arrayHours) => {
+    let totalHoras = 0;
 
+    const periods = [
 
-  
+    ]
+
+    for (let i = 0; i < arrayHours.length; i += 2) {
+        const entrada = new Date(`2000-01-01T${arrayHours[i]}`);
+        const saida = new Date(`2000-01-01T${arrayHours[i + 1]}`);
+
+        if (saida < entrada) {
+        // Se a saída for antes da entrada, adicione um dia à saída
+        saida.setDate(saida.getDate() + 1);
+        }
+
+        const diferencaEmMilissegundos = saida - entrada;
+        const horasTrabalhadas = diferencaEmMilissegundos / (1000); // Converter para horas
+        periods.push({
+            totalWorkHours: horasTrabalhadas,
+            period: {
+                start: `${entrada.getHours()}`.padStart(2, '0') + ':' + `${entrada.getMinutes()}`.padStart(2, '0'),
+                end: `${saida.getHours()}`.padStart(2, '0') + ':' + `${saida.getMinutes()}`.padStart(2, '0'),
+            }
+        })
+        totalHoras += horasTrabalhadas;
+    }
+
+    const hours = `${extractHoursFromSeconds(totalHoras)}`.padStart(2, '0');
+    const minutes = `${extractMinutesFromSeconds(totalHoras)}`.padStart(2, '0');
+
+    return {totalHours: `${hours}:${minutes}`, periods};
+}
