@@ -19,7 +19,7 @@
         display: flex;
         align-items: center;
         flex-direction: column;
-        
+
         width: 610px;
         height: 90vh;
         background-color: white;
@@ -32,13 +32,14 @@
             display: flex;
             align-items: center;
             justify-content: space-around;
-            margin: 20px;
+            margin-bottom: 20px;
+
             input {
                 width: 200px;
             }
         }
 
-       
+
 
         #resultDiv {
             padding: 20px 10px;
@@ -50,16 +51,16 @@
             border: 1px solid lightgray;
 
             display: flex;
-         
+
             flex-direction: column;
 
-            #resultHour{
+            #resultHour {
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 height: 70px;
-            
-             
+
+
             }
 
             .clickToCopy {
@@ -78,7 +79,9 @@
 
             #explainDiv {
                 height: 50%;
-                margin-top: 80px;
+                margin-top: 20px;
+                font-size: 14px;
+                height: 210px;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
