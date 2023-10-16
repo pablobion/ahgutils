@@ -30,3 +30,8 @@ Calculadora de horas
 Calculadora de fator noturno
 Conversor de horas
 Gerador de pis, cpf, e matriculas
+
+
+## License
+
+Licenciado sob a GPL-2.0 e que o uso comercial requer permissão adicional
