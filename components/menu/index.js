@@ -119,7 +119,7 @@ const Layout = ({ children }) => {
                     )
                 } */}
                 {optionsMenu.map(elem => (
-                    <Tooltip key={elem.label} title={currentMonth === 99 ? `🧛🕯️ ${elem.label} 🧟‍♀️🎃` : elem.label} placement="right">
+                    <Tooltip key={elem.label} title={currentMonth === 10 ? `🧛🕯️ ${elem.label} 🧟‍♀️🎃` : elem.label} placement="right">
                         <div onClick={() => router.push(elem.path)} key={elem.path} className='menuOptionDiv'>{elem.icon}</div>
                     </Tooltip>
                 ))}
