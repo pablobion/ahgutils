@@ -56,7 +56,7 @@ const Layout = ({ children }) => {
                     style={{ cursor: 'pointer', marginTop: 15 }}
                 /> */}
                 {cursorImageSrc[currentMonth] && (
-                    <Tooltip title='Setembro Amarelo'>
+                    <Tooltip title='Novembro azul'>
                         <Image
                             src={cursorImageSrc[currentMonth]}
                             width={60}
