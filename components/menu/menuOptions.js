@@ -1,8 +1,8 @@
 import { ImCalculator, ImHome } from 'react-icons/im';
-import {BsFillPeopleFill, BsFillCalendarMonthFill, BsLink45Deg, BsCalendarWeek} from 'react-icons/bs'
-import {MdNightlightRound, MdPublishedWithChanges} from 'react-icons/md'
-import {IoCreate} from 'react-icons/io5'
-import {GrSchedules} from 'react-icons/gr'
+import { BsFillPeopleFill, BsFillCalendarMonthFill, BsLink45Deg, BsCalendarWeek } from 'react-icons/bs'
+import { MdNightlightRound, MdPublishedWithChanges } from 'react-icons/md'
+import { IoCreate } from 'react-icons/io5'
+import { GrSchedules } from 'react-icons/gr'
 
 
 
@@ -42,17 +42,17 @@ export const optionsMenu = [
         path: '/bankCycle',
         label: 'Ciclo de banco de horas'
     },
-    {
-        icon: <BsLink45Deg />,
-        path: '/quickLinks',
-        label: 'Links Rápidos'
-    },
+    // {
+    //     // icon: <BsLink45Deg />,
+    //     // path: '/quickLinks',
+    //     // label: 'Links Rápidos'
+    // },
     {
         icon: <BsFillPeopleFill />,
         path: '/about',
         label: 'Colaboradores'
     },
-    
+
 
 ];
 
