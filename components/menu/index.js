@@ -68,7 +68,7 @@ const Layout = ({ children }) => {
 
 
              
-                currentMonth === 12 && (<Snowfall snowflakeCount={150} />)
+                {currentMonth === 12 && (<Snowfall snowflakeCount={150} />)}
                 
 
                 { // Outubro Rosa
