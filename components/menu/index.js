@@ -67,10 +67,9 @@ const Layout = ({ children }) => {
                 )}
 
 
-                {/* {
-                    // Natal
-                    currentMonth === 12 && (<Snowfall snowflakeCount={150} />)
-                } */}
+             
+                currentMonth === 12 && (<Snowfall snowflakeCount={150} />)
+                
 
                 { // Outubro Rosa
                     currentMonth === 10 && (
