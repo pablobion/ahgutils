@@ -1,0 +1,99 @@
+#container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    #header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+
+        button {
+            font-size: 34px;
+            margin-top: 10px;
+        }
+    }
+
+    #modal {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        
+        width: 610px;
+        height: 55vh;
+        background-color: white;
+        border: 1px solid lightgray;
+        border-radius: 20px;
+        padding: 30px 60px;
+
+        #inputs {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            margin: 20px;
+            input {
+                width: 200px;
+            }
+        }
+
+       
+
+        #resultDiv {
+            padding: 20px 10px;
+            background-color: whitesmoke;
+            border-radius: 20px;
+            width: 109%;
+            height: 100%;
+            margin-top: 20px;
+            border: 1px solid lightgray;
+
+            display: flex;
+         
+            flex-direction: column;
+
+            #resultHour{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 70px;
+            
+             
+            }
+
+            .clickToCopy {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                min-width: 100px;
+                height: 20px;
+                border-radius: 10px;
+                background-color: whitesmoke;
+                border: 1px solid lightgray;
+                padding: 10px;
+                cursor: pointer;
+                margin-left: 20px;
+            }
+
+            #explainDiv {
+                height: 50%;
+                margin-top: 80px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding-left: 15px;
+                margin-bottom: 40px;
+            }
+        }
+
+        #divButtonFooter {
+
+            width: 300px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 50px;
+        }
+    }
+}

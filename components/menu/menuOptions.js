@@ -3,6 +3,7 @@ import { BsFillPeopleFill, BsFillCalendarMonthFill, BsLink45Deg, BsCalendarWeek 
 import { MdNightlightRound, MdPublishedWithChanges } from 'react-icons/md'
 import { IoCreate } from 'react-icons/io5'
 import { GrSchedules } from 'react-icons/gr'
+import { LuCalculator } from "react-icons/lu";
 
 
 
@@ -41,6 +42,11 @@ export const optionsMenu = [
         icon: <BsFillCalendarMonthFill />,
         path: '/bankCycle',
         label: 'Ciclo de banco de horas'
+    },
+    {
+        icon: <LuCalculator />,
+        path: '/otherCalculators',
+        label: 'Outras calculadoras'
     },
     // {
     //     // icon: <BsLink45Deg />,

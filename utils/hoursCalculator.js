@@ -74,6 +74,20 @@ export const bankCycleCalc = (data, quantidadeMeses) => {
     return `${novoAno}-${novoMes.toString().padStart(2, '0')}`;
 }
 
+export const hoursWithFactor = (time, factor) => {
+    factor = factor.replaceAll('_', '0')
+    time = time.replaceAll("_", '0')
+
+    //pega as horas e minutos e multiplica pelo fator
+    let [hours, minutes] = time.split(':')
+    let hoursWithFactor = (hours * factor) + (minutes * factor / 60)
+
+    const hoursWithFactorSexagesimal = objHoursSexagesimal(hoursWithFactor * 3600)
+    const hoursWithFactorSexagesimalString = `${hoursWithFactorSexagesimal.hours.toString().padStart(2, '0')}:${hoursWithFactorSexagesimal.minutes.toString().padStart(2, '0')}`
+
+    return hoursWithFactorSexagesimalString
+}
+
 export const shiftCalculatorHours = (arrayHours) => {
     let totalHoras = 0;
 
