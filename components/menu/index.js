@@ -45,9 +45,70 @@ const Layout = ({ children }) => {
 
     }, []);
 
+    const [selectedColor, setSelectedColor] = useState({
+        menu: '#b6c3cf',
+        background: '#e6f3ff'
+    });
+
+    useEffect(() => {
+        const savedColor = window.localStorage.getItem('themeColor');
+        if (savedColor) {
+            const colors = JSON.parse(savedColor);
+            setSelectedColor(colors);
+            document.documentElement.style.setProperty('--menu-background', colors.menu);
+            document.documentElement.style.setProperty('--page-background', colors.background);
+        }
+    }, []);
+
+    const colors = [
+        { 
+            name: 'Azul', 
+            menu: '#b0c4d8',
+            background: '#e6f3ff' 
+        },
+        { 
+            name: 'Rosa',
+            menu: '#d8a6b0',
+            background: '#ffe6f3'
+        },
+        { 
+            name: 'Verde',
+            menu: '#b0d8c4',
+            background: '#e6fff0'
+        },
+        { 
+            name: 'Amarelo',
+            menu: '#d8d0a6',
+            background: '#fffbe6'
+        },
+        { 
+            name: 'Cinza',
+            menu: '#a0a0a0',
+            background: '#f5f5f5'
+        },
+        { 
+            name: 'Preto',
+            menu: '#3c3c3c',
+            background: '#3c3c3c'
+        }
+    ];
+
+    const handleColorChange = (color) => {
+        setSelectedColor({
+            menu: color.menu,
+            background: color.background
+        });
+        window.localStorage.setItem('themeColor', JSON.stringify({
+            menu: color.menu,
+            background: color.background
+        }));
+        document.documentElement.style.setProperty('--menu-background', color.menu);
+        document.documentElement.style.setProperty('--page-background', color.background);
+    };
+
     return (
-        <div className="container" onMouseMove={handleMouseMove} style={{backgroundColor: '#232329'}}>
-            <div className="menu">
+        <div className="container" onMouseMove={handleMouseMove} style={{backgroundColor: selectedColor.background}}>
+            <div className="menu" style={{ backgroundColor: selectedColor.menu }}>
                 {/* <Image
                     src={logo}
                     width={80}
@@ -122,6 +183,17 @@ const Layout = ({ children }) => {
                         <div onClick={() => router.push(elem.path)} key={elem.path} className='menuOptionDiv'>{elem.icon}</div>
                     </Tooltip>
                 ))}
+                <div className="color-picker">
+                    {colors.map((color) => (
+                        <Tooltip key={color.name} title={color.name} placement="top">
+                            <button
+                                className={`color-button ${selectedColor.menu === color.menu ? 'selected' : ''}`}
+                                onClick={() => handleColorChange(color)}
+                                style={{ backgroundColor: color.background }}
+                            />
+                        </Tooltip>
+                    ))}
+                </div>
             </div>
             {children}
         </div>

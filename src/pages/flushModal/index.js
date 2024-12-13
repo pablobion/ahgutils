@@ -12,7 +12,6 @@ const FlushModal = () => {
         'blank',
     ])
 
-    const teste = ['em construção ', 'em construção '];
 
     useEffect(() => {
         const flushModal = localStorage.getItem("flushModal");
@@ -63,7 +62,6 @@ const FlushModal = () => {
                     )
                 })}
             </div>
-            {teste.map(elem => <h1> {elem}</h1>)}
             <Snackbar open={snackbar.open} autoHideDuration={2000} onClose={handleClose}>
                 <Alert onClose={handleClose} severity={snackbar.type} sx={{ width: '100%' }}>{snackbar.message}</Alert>
             </Snackbar>

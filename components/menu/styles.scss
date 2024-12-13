@@ -1,3 +1,11 @@
+:root {
+  --menu-background: #1a1a2e;
+}
+
+html, body {
+  background-color: var(--page-background);
+  min-height: 100vh;
+}
 
 .container {
     display: flex;
@@ -5,7 +13,7 @@
 }
 
 .menu {
-    background-color: #232329;
+    background-color: var(--menu-background);
     height: 98vh;
     width: 90px;
     font-size: 40px;
@@ -29,18 +37,50 @@
     cursor: pointer;
     width: 90px;
     height: 80px;
-    color: gray;
-
+    color: var(--page-background);
+    filter: brightness(5);
 
     border-radius: 5px;
 
     &:hover {
-
-        background-color: rgb(113, 113, 113);
-        color: white;
+        background-color: var(--menu-background);
+        filter: brightness(0.9);
+        color: var(--page-background);
     }
 
     &:focus {
-        background-color: rgb(113, 113, 113);
+        background-color: var(--menu-background);
+        filter: brightness(0.9);
+    }
+}
+
+.color-picker {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    background: rgba(85, 85, 85, 0.9);
+    border-radius: 20px;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+
+    .color-button {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        border: none;
+        cursor: pointer;
+        transition: transform 0.2s;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+        &:hover {
+            transform: scale(1.1);
+        }
+
+        &.selected {
+            border: 2px solid white;
+        }
     }
 }
