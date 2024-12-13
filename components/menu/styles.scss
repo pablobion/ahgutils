@@ -45,12 +45,13 @@ html, body {
     &:hover {
         background-color: var(--menu-background);
         filter: brightness(0.9);
-        color: var(--page-background);
+        color: white;
+        // color: var(--page-background);
     }
 
     &:focus {
         background-color: var(--menu-background);
-        filter: brightness(0.9);
+        filter: brightness(0.8);
     }
 }
 

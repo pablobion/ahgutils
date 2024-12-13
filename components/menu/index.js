@@ -46,7 +46,7 @@ const Layout = ({ children }) => {
     }, []);
 
     const [selectedColor, setSelectedColor] = useState({
-        menu: '#b6c3cf',
+        menu: '#b0c4d8',
         background: '#e6f3ff'
     });
 
@@ -57,6 +57,9 @@ const Layout = ({ children }) => {
             setSelectedColor(colors);
             document.documentElement.style.setProperty('--menu-background', colors.menu);
             document.documentElement.style.setProperty('--page-background', colors.background);
+        } else {
+            document.documentElement.style.setProperty('--menu-background', selectedColor.menu);
+            document.documentElement.style.setProperty('--page-background', selectedColor.background);
         }
     }, []);
 
