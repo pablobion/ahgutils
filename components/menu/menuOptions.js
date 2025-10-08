@@ -4,10 +4,22 @@ import { MdNightlightRound, MdPublishedWithChanges } from 'react-icons/md'
 import { IoCreate } from 'react-icons/io5'
 import { GrSchedules } from 'react-icons/gr'
 import { LuCalculator } from "react-icons/lu";
+import Image from 'next/image'
+import Logo from '../../assets/4generate.png'
 
 
 
 export const optionsMenu = [
+    {
+        icon: <div><Image
+                                    src={Logo}
+                                    width={60}
+                                    style={{ cursor: 'pointer', marginLeft: -105, marginTop: -30 }}
+                                    id='easterEgg'
+                                /></div>,
+        path: '/',
+        label: '4Generate' 
+    },
     {
         icon: <ImHome />,
         path: '/',

@@ -181,11 +181,20 @@ const Layout = ({ children }) => {
                         </>
                     )
                 } */}
-                {optionsMenu.map(elem => (
-                    <Tooltip key={elem.label} title={currentMonth === 10 ? `🧛🕯️ ${elem.label} 🧟‍♀️🎃` : elem.label} placement="right">
-                        <div onClick={() => router.push(elem.path)} key={elem.path} className='menuOptionDiv'>{elem.icon}</div>
-                    </Tooltip>
-                ))}
+                {optionsMenu.map(elem => {
+                    return (
+                        <div key={elem.label}>
+                            {elem.label == '4Generate' ? (<Tooltip title='Ir para 4Generate'><button
+  onClick={() => window.open('https://4generate.com/pt/ahgutils/', '_blank')}
+  style={{ background: 'transparent', border: 'none', marginBottom: 30, paddingLeft: 30 }}
+>
+  {elem.icon}
+</button></Tooltip>) : (  <Tooltip key={elem.label} title={currentMonth === 10 ? `🧛🕯️ ${elem.label} 🧟‍♀️🎃` : elem.label} placement="right">
+                            <div onClick={() => router.push(elem.path)} key={elem.path} className='menuOptionDiv'>{elem.icon}</div>
+                        </Tooltip> )}
+                        </div>
+                    );
+                })}
                 <div className="color-picker">
                     {colors.map((color) => (
                         <Tooltip key={color.name} title={color.name} placement="top">
