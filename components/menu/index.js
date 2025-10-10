@@ -64,32 +64,32 @@ const Layout = ({ children }) => {
     }, []);
 
     const colors = [
-        { 
-            name: 'Azul', 
+        {
+            name: 'Azul',
             menu: '#b0c4d8',
-            background: '#e6f3ff' 
+            background: '#e6f3ff'
         },
-        { 
+        {
             name: 'Rosa',
             menu: '#d8a6b0',
             background: '#ffe6f3'
         },
-        { 
+        {
             name: 'Verde',
             menu: '#b0d8c4',
             background: '#e6fff0'
         },
-        { 
+        {
             name: 'Amarelo',
             menu: '#d8d0a6',
             background: '#fffbe6'
         },
-        { 
+        {
             name: 'Cinza',
             menu: '#a0a0a0',
             background: '#f5f5f5'
         },
-        { 
+        {
             name: 'Preto',
             menu: '#3c3c3c',
             background: '#3c3c3c'
@@ -131,9 +131,9 @@ const Layout = ({ children }) => {
                 )}
 
 
-             
+
                 {currentMonth === 12 && (<Snowfall snowflakeCount={150} />)}
-                
+
 
                 { // Outubro Rosa
                     currentMonth === 10 && (
@@ -185,7 +185,7 @@ const Layout = ({ children }) => {
                     return (
                         <div key={elem.label}>
                             {elem.label == '4Generate' ? (<Tooltip title='Ir para 4Generate'><button
-  onClick={() => window.open('https://4generate.com/pt/ahgutils/', '_blank')}
+  onClick={() => window.open('https://4generate.pages.dev/pt/ahgutils/', '_blank')}
   style={{ background: 'transparent', border: 'none', marginBottom: 30, paddingLeft: 30 }}
 >
   {elem.icon}
