@@ -184,8 +184,8 @@ const Layout = ({ children }) => {
                 {optionsMenu.map(elem => {
                     return (
                         <div key={elem.label}>
-                            {elem.label == '4Generate' ? (<Tooltip title='Ir para 4Generate'><button
-  onClick={() => window.open('https://4generate.pages.dev/pt/ahgutils/', '_blank')}
+                            {elem.label == '4Generate' ? (<Tooltip style={{ cursor: 'pointer' }} onClick={() => window.open('https://4generate.pages.dev/pt/ahgutils/', '_blank')} title='Ir para 4Generate'><button
+
   style={{ background: 'transparent', border: 'none', marginBottom: 30, paddingLeft: 30 }}
 >
   {elem.icon}

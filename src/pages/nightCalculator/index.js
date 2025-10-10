@@ -71,7 +71,7 @@ export const NightCalculatorComponent = () => {
             <p>{`Logo temos ${minutesToSexagesimal[1] ? ` ${minutesToSexagesimal[0]} Minutos e ${minutesToSexagesimal[1]} segundos` : `${minutesToSexagesimal[0]} Minutos`}`}</p>,
             <p>{`Agora é só somar os minutos com as horas: ${onlyHoursCentesimal.toString().padStart(2, '0')}h + ${String(minutesToSexagesimal[0]).padStart(2, '0')}m = ${onlyHoursCentesimal.toString().padStart(2, '0')}h${String(minutesToSexagesimal[0]).padStart(2, '0')}m`}</p>
         ];
-          
+
         return [resultHtml, resultText]
     }
 
@@ -91,16 +91,20 @@ export const NightCalculatorComponent = () => {
         if(data === 'resultExplain') text = explainResult[1]
 
         navigator.clipboard.writeText(text)
-        
+
         handleShowMessage({ message: 'Copiado para a área de transferência', type: 'success' })
     }
 
     return (
         <>
             <div id='modal'>
+            <div onClick={() => window.open('https://4generate.pages.dev/pt/ahgutils/nightCalculator/?ahgutils=true', '_blank')} style={{borderRadius: 10, border: '1px solid lightgray', padding: 10, marginBottom: 20, backgroundColor: '#9D349D', color: 'white', cursor: 'pointer'}}>
+                <p>Acessar no 4Generate</p>
+            </div>
                 <div id='header'>
                     <h2>Calculadora de horas noturnas</h2>
-                    
+
+
                     <AlertDialog
                         button={(
                             <Tooltip title="Informação sobre horas noturnas">
@@ -135,7 +139,7 @@ export const NightCalculatorComponent = () => {
                                     <p >Resultado com fator noturno:</p>
                                     <Tooltip className='clickToCopy' title='Clique para copiar'><strong>{result.hours}h{result.minutes}m</strong></Tooltip>
                                 </div>
-                                
+
                                 <div id='explainDiv'>
                                     <h3>Explicação (Beta):</h3>
                                     {explainResult[0].map(elem => (<p style={{fontSize: 15, marginTop: 10}}>{elem}</p>))}

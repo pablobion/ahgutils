@@ -34,9 +34,10 @@ export const BankCycleComponent = () => {
 
     return (
         <div id='modal'>
-
+            <div onClick={() => window.open('https://4generate.pages.dev/pt/ahgutils/bankCycle/?ahgutils=true', '_blank')} style={{borderRadius: 10, border: '1px solid lightgray', padding: 10, marginBottom: 20, backgroundColor: '#9D349D', color: 'white', cursor: 'pointer'}}>
+                <p>Acessar no 4Generate</p>
+            </div>
             <h1>Ciclo de banco de horas</h1>
-
             <h3>Data de inicio do ciclo</h3>
             <input disabled={runNextCycle} value={initial.yearMonth} onChange={(e) => handleChangeMonth(e, 'yearMonth')} id='inputMonth' type="month" />
             <TextField disabled={runNextCycle} value={initial.months} onChange={(e) => handleChangeMonth(e, 'months')} id="outlined-basic" label="Quantidade de meses" variant="outlined" />

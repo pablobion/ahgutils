@@ -71,6 +71,9 @@ function ShiftCalculator() {
     return (
         <div className='container'>
             <div id='modal'>
+            <div onClick={() => window.open('https://4generate.pages.dev/pt/ahgutils/shiftCalculator/?ahgutils=true', '_blank')} style={{borderRadius: 10, border: '1px solid lightgray', padding: 10, marginBottom: 20, backgroundColor: '#9D349D', color: 'white', cursor: 'pointer'}}>
+                <p>Acessar no 4Generate</p>
+            </div>
                 <h2 id='title'>Calculadora de jornada (Beta)</h2>
                 <div id='painelHoursInputCalculator'>
                     <div className='painelHoursInputCalculatorLeft'>
@@ -80,11 +83,11 @@ function ShiftCalculator() {
                                     <div style={{display: 'flex'}}>
                                         <div className='divInputs'>
                                             <p>Entrada {index / 2 + 1}</p>
-                                            <TextField type='time' value={elem} onChange={(e) => handleChangeInput(e.target.value, index)} />    
+                                            <TextField type='time' value={elem} onChange={(e) => handleChangeInput(e.target.value, index)} />
                                         </div>
                                         <div className='divInputs'>
                                             <p>Saida {index / 2 + 1}</p>
-                                            <TextField type='time' value={state[index +1]} onChange={(e) => handleChangeInput(e.target.value, index+1)} />    
+                                            <TextField type='time' value={state[index +1]} onChange={(e) => handleChangeInput(e.target.value, index+1)} />
                                         </div>
                                     </div>
                                 )
@@ -108,18 +111,18 @@ function ShiftCalculator() {
 
                 {/* <div style={{display: 'flex', alignItems: 'center'}}>
                     <Checkbox label='jxhjdij' defaultChecked />
-                    <p>Ativar calculo noturno</p> 
+                    <p>Ativar calculo noturno</p>
                 </div>
                 <div style={{display: 'flex', alignItems: 'center'}}>
                     <p>Inicio</p>
-                    <TextField style={{marginLeft: 10}} type='time' />    
+                    <TextField style={{marginLeft: 10}} type='time' />
                     <p>Fim</p>
-                    <TextField style={{marginLeft: 10}}  type='time' />    
+                    <TextField style={{marginLeft: 10}}  type='time' />
                 </div>
  */}
 
                 <Button onClick={() => doCalc()} style={{ backgroundColor: "#0078d4", minWidth: 147 }} variant="contained">Calcular</Button>
-         
+
 
                 <div className='divider' />
                 <h2>Resultado</h2>
