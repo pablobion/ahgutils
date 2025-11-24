@@ -111,17 +111,17 @@ const Layout = ({ children }) => {
 
     const get4GenerateLink = (path) => {
         const routeMapping = {
-            '/': 'https://4generate.pages.dev/pt/ahgutils/',
-            '/hoursCalculator': 'https://4generate.pages.dev/pt/ahgutils/hoursCalculator/?ahgutils=true',
-            '/nightCalculator': 'https://4generate.pages.dev/pt/ahgutils/nightCalculator/?ahgutils=true',
-            '/hoursConverter': 'https://4generate.pages.dev/pt/ahgutils/hoursConverter/?ahgutils=true',
-            '/generateData': 'https://4generate.pages.dev/pt/ahgutils/generateData/?ahgutils=true',
-            '/shiftCalculator': 'https://4generate.pages.dev/pt/ahgutils/shiftCalculator/?ahgutils=true',
-            '/bankCycle': 'https://4generate.pages.dev/pt/ahgutils/bankCycle/?ahgutils=true',
-            '/otherCalculators': 'https://4generate.pages.dev/pt/ahgutils/multipliquerFactor/?ahgutils=true',
-            '/about': 'https://4generate.pages.dev/pt?ahgutils=true',
+            '/': 'https://4generate.com/pt/ahgutils/',
+            '/hoursCalculator': 'https://4generate.com/pt/ahgutils/hoursCalculator/?ahgutils=true',
+            '/nightCalculator': 'https://4generate.com/pt/ahgutils/nightCalculator/?ahgutils=true',
+            '/hoursConverter': 'https://4generate.com/pt/ahgutils/hoursConverter/?ahgutils=true',
+            '/generateData': 'https://4generate.com/pt/ahgutils/generateData/?ahgutils=true',
+            '/shiftCalculator': 'https://4generate.com/pt/ahgutils/shiftCalculator/?ahgutils=true',
+            '/bankCycle': 'https://4generate.com/pt/ahgutils/bankCycle/?ahgutils=true',
+            '/otherCalculators': 'https://4generate.com/pt/ahgutils/multipliquerFactor/?ahgutils=true',
+            '/about': 'https://4generate.com/pt?ahgutils=true',
         };
-        return routeMapping[path] || 'https://4generate.pages.dev/pt/ahgutils/';
+        return routeMapping[path] || 'https://4generate.com/pt/ahgutils/';
     };
 
     return (

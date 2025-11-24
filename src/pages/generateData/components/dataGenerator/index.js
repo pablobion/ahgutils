@@ -69,7 +69,7 @@ export const DataGeneratorComponent = () => {
     return (
         <>
             <div id='modal'>
-            <div onClick={() => window.open('https://4generate.pages.dev/pt/ahgutils/generateData/?ahgutils=true', '_blank')} style={{borderRadius: 10, border: '1px solid lightgray', padding: 10, marginBottom: 20, backgroundColor: '#9D349D', color: 'white', cursor: 'pointer'}}>
+            <div onClick={() => window.open('https://4generate.com/pt/ahgutils/generateData/?ahgutils=true', '_blank')} style={{borderRadius: 10, border: '1px solid lightgray', padding: 10, marginBottom: 20, backgroundColor: '#9D349D', color: 'white', cursor: 'pointer'}}>
                 <p>Acessar no 4Generate</p>
             </div>
                 <div id='header'>
