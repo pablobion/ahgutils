@@ -109,6 +109,21 @@ const Layout = ({ children }) => {
         document.documentElement.style.setProperty('--page-background', color.background);
     };
 
+    const get4GenerateLink = (path) => {
+        const routeMapping = {
+            '/': 'https://4generate.pages.dev/pt/ahgutils/',
+            '/hoursCalculator': 'https://4generate.pages.dev/pt/ahgutils/hoursCalculator/?ahgutils=true',
+            '/nightCalculator': 'https://4generate.pages.dev/pt/ahgutils/nightCalculator/?ahgutils=true',
+            '/hoursConverter': 'https://4generate.pages.dev/pt/ahgutils/hoursConverter/?ahgutils=true',
+            '/generateData': 'https://4generate.pages.dev/pt/ahgutils/generateData/?ahgutils=true',
+            '/shiftCalculator': 'https://4generate.pages.dev/pt/ahgutils/shiftCalculator/?ahgutils=true',
+            '/bankCycle': 'https://4generate.pages.dev/pt/ahgutils/bankCycle/?ahgutils=true',
+            '/otherCalculators': 'https://4generate.pages.dev/pt/ahgutils/multipliquerFactor/?ahgutils=true',
+            '/about': 'https://4generate.pages.dev/pt?ahgutils=true',
+        };
+        return routeMapping[path] || 'https://4generate.pages.dev/pt/ahgutils/';
+    };
+
     return (
         <div className="container" onMouseMove={handleMouseMove} style={{backgroundColor: selectedColor.background}}>
             <div className="menu" style={{ backgroundColor: selectedColor.menu }}>
@@ -184,14 +199,23 @@ const Layout = ({ children }) => {
                 {optionsMenu.map(elem => {
                     return (
                         <div key={elem.label}>
-                            {elem.label == '4Generate' ? (<Tooltip style={{ cursor: 'pointer' }} onClick={() => window.open('https://4generate.pages.dev/pt/ahgutils/', '_blank')} title='Ir para 4Generate'><button
-
-  style={{ background: 'transparent', border: 'none', marginBottom: 30, paddingLeft: 30 }}
->
-  {elem.icon}
-</button></Tooltip>) : (  <Tooltip key={elem.label} title={currentMonth === 10 ? `🧛🕯️ ${elem.label} 🧟‍♀️🎃` : elem.label} placement="right">
-                            <div onClick={() => router.push(elem.path)} key={elem.path} className='menuOptionDiv'>{elem.icon}</div>
-                        </Tooltip> )}
+                            <Tooltip key={elem.label} title={currentMonth === 10 ? `🧛🕯️ ${elem.label} 🧟‍♀️🎃` : elem.label} placement="right">
+                                <div
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        e.stopPropagation();
+                                        const link = get4GenerateLink(elem.path);
+                                        window.open(link, '_blank');
+                                    }}
+                                    onMouseDown={(e) => {
+                                        e.preventDefault();
+                                    }}
+                                    style={{ cursor: 'pointer', position: 'relative', zIndex: 10 }}
+                                    className='menuOptionDiv'
+                                >
+                                    {elem.icon}
+                                </div>
+                            </Tooltip>
                         </div>
                     );
                 })}
