@@ -11,14 +11,14 @@ import Logo from '../../assets/4generate.png'
 
 export const optionsMenu = [
     {
-        icon: <div><Image
+        icon: <div style={{ pointerEvents: 'none' }}><Image
                                     src={Logo}
                                     width={60}
                                     style={{ cursor: 'pointer', marginLeft: -105, marginTop: -30 }}
                                     id='easterEgg'
                                 /></div>,
         path: '/',
-        label: '4Generate' 
+        label: '4Generate'
     },
     {
         icon: <ImHome />,

@@ -8,7 +8,7 @@ Ferramenta de calculo conversão e utilitários para a equipe de suporte da ahgo
 ## Índice
 
 - [Instalação](#instalação)
-- [Uso](#uso)
+- [Uso](#uso)  
 - [Recursos](#recursos)
 
 

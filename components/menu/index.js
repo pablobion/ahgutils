@@ -64,32 +64,32 @@ const Layout = ({ children }) => {
     }, []);
 
     const colors = [
-        { 
-            name: 'Azul', 
+        {
+            name: 'Azul',
             menu: '#b0c4d8',
-            background: '#e6f3ff' 
+            background: '#e6f3ff'
         },
-        { 
+        {
             name: 'Rosa',
             menu: '#d8a6b0',
             background: '#ffe6f3'
         },
-        { 
+        {
             name: 'Verde',
             menu: '#b0d8c4',
             background: '#e6fff0'
         },
-        { 
+        {
             name: 'Amarelo',
             menu: '#d8d0a6',
             background: '#fffbe6'
         },
-        { 
+        {
             name: 'Cinza',
             menu: '#a0a0a0',
             background: '#f5f5f5'
         },
-        { 
+        {
             name: 'Preto',
             menu: '#3c3c3c',
             background: '#3c3c3c'
@@ -107,6 +107,21 @@ const Layout = ({ children }) => {
         }));
         document.documentElement.style.setProperty('--menu-background', color.menu);
         document.documentElement.style.setProperty('--page-background', color.background);
+    };
+
+    const get4GenerateLink = (path) => {
+        const routeMapping = {
+            '/': 'https://4generate.com/pt/ahgutils/',
+            '/hoursCalculator': 'https://4generate.com/pt/ahgutils/hoursCalculator/?ahgutils=true',
+            '/nightCalculator': 'https://4generate.com/pt/ahgutils/nightCalculator/?ahgutils=true',
+            '/hoursConverter': 'https://4generate.com/pt/ahgutils/hoursConverter/?ahgutils=true',
+            '/generateData': 'https://4generate.com/pt/ahgutils/generateData/?ahgutils=true',
+            '/shiftCalculator': 'https://4generate.com/pt/ahgutils/shiftCalculator/?ahgutils=true',
+            '/bankCycle': 'https://4generate.com/pt/ahgutils/bankCycle/?ahgutils=true',
+            '/otherCalculators': 'https://4generate.com/pt/ahgutils/multipliquerFactor/?ahgutils=true',
+            '/about': 'https://4generate.com/pt?ahgutils=true',
+        };
+        return routeMapping[path] || 'https://4generate.com/pt/ahgutils/';
     };
 
     return (
@@ -131,9 +146,9 @@ const Layout = ({ children }) => {
                 )}
 
 
-             
+
                 {currentMonth === 12 && (<Snowfall snowflakeCount={150} />)}
-                
+
 
                 { // Outubro Rosa
                     currentMonth === 10 && (
@@ -184,14 +199,23 @@ const Layout = ({ children }) => {
                 {optionsMenu.map(elem => {
                     return (
                         <div key={elem.label}>
-                            {elem.label == '4Generate' ? (<Tooltip title='Ir para 4Generate'><button
-  onClick={() => window.open('https://4generate.com/pt/ahgutils/', '_blank')}
-  style={{ background: 'transparent', border: 'none', marginBottom: 30, paddingLeft: 30 }}
->
-  {elem.icon}
-</button></Tooltip>) : (  <Tooltip key={elem.label} title={currentMonth === 10 ? `🧛🕯️ ${elem.label} 🧟‍♀️🎃` : elem.label} placement="right">
-                            <div onClick={() => router.push(elem.path)} key={elem.path} className='menuOptionDiv'>{elem.icon}</div>
-                        </Tooltip> )}
+                            <Tooltip key={elem.label} title={currentMonth === 10 ? `🧛🕯️ ${elem.label} 🧟‍♀️🎃` : elem.label} placement="right">
+                                <div
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        e.stopPropagation();
+                                        const link = get4GenerateLink(elem.path);
+                                        window.open(link, '_blank');
+                                    }}
+                                    onMouseDown={(e) => {
+                                        e.preventDefault();
+                                    }}
+                                    style={{ cursor: 'pointer', position: 'relative', zIndex: 10 }}
+                                    className='menuOptionDiv'
+                                >
+                                    {elem.icon}
+                                </div>
+                            </Tooltip>
                         </div>
                     );
                 })}
